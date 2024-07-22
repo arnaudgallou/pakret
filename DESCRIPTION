@@ -1,0 +1,30 @@
+Package: pakret
+Title: Cite R Packages on the Fly
+Version: 0.0.0.9000
+Authors@R:
+    person("Arnaud", "Gallou", , "arangacas@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-1002-4247"))
+Description: References and cites 'R' packages on the fly in 'R Markdown'
+    and 'Quarto'. 'pakret' provides a minimalist 'API' that generates
+    preformatted citations of 'R' packages and other 'R' objects, and adds
+    their reference to a '.bib' file directly from within your document.
+License: GPL (>= 3)
+Depends:
+    R (>= 3.6.0)
+Imports:
+    readr (>= 1.0.0),
+    rmarkdown,
+    utils,
+    withr (>= 2.5.0)
+Suggests:
+    callr (>= 3.7.5),
+    knitr,
+    pkgload,
+    testthat (>= 3.0.0),
+    usethis
+VignetteBuilder:
+    knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1

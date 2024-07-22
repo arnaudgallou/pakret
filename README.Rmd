@@ -1,0 +1,151 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+options(pakret.render_mode = FALSE)
+
+make_template <- function(lines, to_render = TRUE) {
+  if (to_render) {
+    args <- list("%s", "`r pakret:::load_foo()` `r pakret:::load_bar()`")
+  } else {
+    args <- list("references.bib", "")
+  }
+  do.call(sprintf, c(lines, args))
+}
+```
+
+# pakret
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+## Overview
+
+pakret is a minimalist R package citation tool to reference and cite R packages and objects on the fly in R Markdown and Quarto.
+
+## Installation
+
+You can install pakret from GitHub with:
+
+```{r, eval = FALSE}
+# install.packages("pak")
+pak::pak("arnaudgallou/pakret")
+```
+
+## Usage
+
+Simply use `pkrt()` whenever you want to cite an R package or object in your document:
+
+````{r, include = FALSE}
+template <- pakret:::dedent("
+  ---
+  bibliography: %s
+  ---
+
+  ```{r}
+  #| include: false
+
+  library(pakret)
+  ```
+  %s
+  Maps were created using `r pkrt(foo)`.
+
+  We used `r pkrt(bar::blah)` to compute X.
+
+  ## References
+")
+````
+
+```{r, echo = FALSE, class.output = "default"}
+cat(make_template(template, FALSE))
+```
+
+pakret handles everything for you.
+
+Here’s the markdown output produced by the document above:
+
+```{r, echo = FALSE}
+make_template(template) |>
+  pakret:::local_files() |>
+  pakret:::read_local_file() |>
+  cat()
+```
+
+Unhappy with the default templates? pakret lets you define your own:
+
+````{r, include = FALSE}
+template <- pakret:::dedent('
+  ---
+  bibliography: %s
+  ---
+
+  ```{r}
+  #| include: false
+
+  library(pakret)
+  pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")
+  ```
+  %s
+  We used `r pkrt(foo)` to create the maps.
+
+  ## References
+')
+````
+
+```{r, echo = FALSE, class.output = "default"}
+cat(make_template(template, FALSE))
+```
+
+Which gives:
+
+```{r, echo = FALSE}
+make_template(template) |>
+  pakret:::local_files() |>
+  pakret:::read_local_file() |>
+  cat()
+```
+
+It's also possible to cite a collection of packages with `pkrt_list()`:
+
+````{r, include = FALSE}
+template <- pakret:::dedent('
+  ---
+  bibliography: %s
+  ---
+
+  ```{r}
+  #| include: false
+
+  library(pakret)
+  ```
+  %s
+  We used the following packages: `r pkrt_list("foo", "bar")`.
+
+  ## References
+')
+````
+
+```{r, echo = FALSE, class.output = "default"}
+cat(make_template(template, FALSE))
+```
+
+Here's the result:
+
+```{r, echo = FALSE}
+make_template(template) |>
+  pakret:::local_files() |>
+  pakret:::read_local_file() |>
+  cat()
+```
