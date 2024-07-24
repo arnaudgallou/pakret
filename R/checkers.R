@@ -47,12 +47,8 @@ is_named <- function(x) {
   TRUE
 }
 
-is_base <- function(x) {
-  x$pkg == "base"
-}
-
 is_r <- function(x) {
-  x$pkg == "R"
+  x %in% c("R", "base")
 }
 
 is_manual <- function(x) {
@@ -191,28 +187,10 @@ check_bib <- function(x, arg = caller_arg(x)) {
   check_type(x, is_bib, "a `.bib` file", arg)
 }
 
-check_items <- function(x) {
-  if (is_r(x) || is_base(x)) {
-    return(invisible())
-  }
-  check_pkg(x$pkg)
-  if (!is.null(x$obj) && getOption("pakret.check_obj", FALSE)) {
-    check_obj(x$pkg, x$obj)
-  }
-}
-
 check_pkg <- function(pkg) {
   path <- system.file(package = pkg)
   if (!is_empty(path)) {
     return(invisible())
   }
   abort("Package `%s` doesn't exist or isn't installed.", pkg)
-}
-
-check_obj <- function(pkg, obj) {
-  obj_exists <- exists(obj, where = asNamespace(pkg))
-  if (obj_exists) {
-    return(invisible())
-  }
-  abort("`%s` isn't exported from the package `%s`.", obj, pkg)
 }

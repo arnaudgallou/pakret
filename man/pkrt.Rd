@@ -2,30 +2,23 @@
 % Please edit documentation in R/pkrt.R
 \name{pkrt}
 \alias{pkrt}
-\title{Cite R, an R package or object}
+\title{Cite R or an R package}
 \usage{
-pkrt(expr, object_type = "function")
+pkrt(x)
 }
 \arguments{
-\item{expr}{A string or unquoted expression of the package or object to cite.
-When citing an object, the expression must be in the form \code{pkg::object}.
-
-Use \code{pkrt(R)} to cite R.}
-
-\item{object_type}{A string that describes the type of the object to cite.}
+\item{x}{A string of the package to cite. Use \code{pkrt("R")} to cite R.}
 }
 \value{
 A character string.
 }
 \description{
-Creates a preformatted citation of an R package or object. This
+Creates a preformatted citation of R or an R package. This
 function should normally only be used in an R Markdown or Quarto document,
 in which case \code{pkrt()} automatically references the cited package in the
 first (by default) \code{.bib} file specified in the YAML header if no
 references of the package already exist.
 }
 \examples{
-pkrt(pakret)
-
-pkrt(pakret::pkrt)
+pkrt("pakret")
 }

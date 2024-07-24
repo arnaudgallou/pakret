@@ -17,14 +17,6 @@
     Output
       <simpleError: `foo` isn't a valid setting.>
     Code
-      (expect_error(pkrt_set(sep = 1)))
-    Output
-      <simpleError: `sep` must be a string.>
-    Code
-      (expect_error(pkrt_set(obj_first = 1)))
-    Output
-      <simpleError: `obj_first` must be `TRUE` or `FALSE`.>
-    Code
       (expect_error(pkrt_set(pkg = 1)))
     Output
       <simpleError: `pkg` must be a string.>

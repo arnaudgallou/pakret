@@ -15,11 +15,11 @@
 #' Use `NULL` to reset a parameter to its default value.
 #' @examples
 #' pkrt_set(pkg = ":pkg (v. :ver) :ref")
-#' pkrt(pakret)
+#' pkrt("pakret")
 #'
 #' # `NULL` resets parameters to their default value
 #' pkrt_set(pkg = NULL)
-#' pkrt(pakret)
+#' pkrt("pakret")
 #' @export
 pkrt_set <- function(...) {
   items <- list(...)
@@ -62,11 +62,6 @@ set_option.default <- function(x) {
   abort("`%s` isn't a valid setting.", names(x))
 }
 
-set_option.sep <- function(x) {
-  check_string(x, arg = names(x))
-  update(x)
-}
-
 set_option.template <- function(x) {
   check_template(x, arg = names(x))
   update(x)
@@ -82,11 +77,6 @@ set_option.bib <- function(x) {
   }
   check_bib_target(x)
   set(bib = x, file = bib_fetch())
-}
-
-set_option.obj_first <- function(x) {
-  check_bool(x, arg = names(x))
-  update(x)
 }
 
 # doc ----
@@ -111,24 +101,12 @@ make_pkrt_set_details <- function() {
   paste(out, collapse = "\n\n")
 }
 
-dedent <- function(x) {
-  indentation <- sub("(?s)\\S*\\R(\\s*).+", "\\1", x, perl = TRUE)
-  x <- gsub(paste0("(?m)^", indentation), "", x, perl = TRUE)
-  trimws(x)
-}
-
 details <- list(
-  obj = "Template used to cite a particular object from a package.",
-  pkg = "Template used to cite a package.",
-  pkg_list = "Template used in `pkrt_list()`.",
-  r = "Template used to cite R.",
   bib = list(
     "Name or index of the `.bib` file to save references to.",
     type = "character|numeric"
   ),
-  obj_first = "Should `obj` and `pkg` be reversed?",
-  sep = dedent("
-    Separator used to separate `obj` and `pkg`. This parameter is only useful
-      for people writing in languages that don't separate words with a space.
-  ")
+  pkg = "Template used to cite a package.",
+  pkg_list = "Template used in `pkrt_list()`.",
+  r = "Template used to cite R."
 )

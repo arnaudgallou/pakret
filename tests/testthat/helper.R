@@ -10,7 +10,7 @@ make_template <- function(lines = "", meta = "bibliography: %s") {
 }
 
 extract_pkgs <- function(x) {
-  unique(extract(x, "(?<=pkrt\\()[a-z]+"))
+  unique(extract(x, "pkrt\\([\"']\\K[a-z]+"))
 }
 
 to_load <- function(x) {

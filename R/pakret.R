@@ -10,10 +10,6 @@ bib_name <- function(x) {
   sub("\\.bib$", "", basename(x))
 }
 
-sanitize_expr <- function(x) {
-  gsub("^[^A-Za-z]+|[\"'`]|[^\\w.]+$", "", x, perl = TRUE)
-}
-
 extract <- function(x, pattern) {
   locs <- gregexpr(pattern, x, perl = TRUE)
   regmatches(x, locs)[[1]]
@@ -28,33 +24,16 @@ extract_refs <- function() {
   refs
 }
 
-parse_expr <- function(x) {
-  x <- sanitize_expr(deparse(x))
-  items <- strsplit(x, "::", fixed = TRUE)[[1]]
-  names(items) <- c("pkg", if (length(items) > 1L) "obj")
-  items <- as.list(items)
-  if (is_r(items)) {
-    items$pkg <- "base"
+as_pkg <- function(x) {
+  if (is_r(x)) {
+    return(as_r())
   }
-  as_pkrt(items)
-}
-
-as_pkrt <- function(x) {
-  if (is_base(x)) {
-    return(as_r(x))
-  }
-  for (key in names(x)) {
-    class(x[[key]]) <- key
-  }
-  if (length(x) > 1L) {
-    class(x) <- "pkrt_obj"
-  }
+  class(x) <- "pkg"
   x
 }
 
-as_r <- function(x) {
-  class(x$pkg) <- "r"
-  x[1]
+as_r <- function() {
+  structure("base", class = "r")
 }
 
 bib_init <- function() {
@@ -164,34 +143,18 @@ get_path <- function(x) {
   if (is_empty(x)) path_ls else x
 }
 
-cite <- function(x, ..., type) {
+cite <- function(x, template = class(x)) {
   if (is_rendering_context()) {
-    add_ref(x[[1]])
+    add_ref(x)
   }
-  UseMethod("cite")
-}
-
-cite.default <- function(x, ...) {
-  make_citation(x$pkg)
-}
-
-cite.character <- function(x, ...) {
-  make_citation(x, template = "pkg_list")
-}
-
-cite.pkrt_obj <- function(x, ..., type) {
-  items <- lapply(x, function(item) make_citation(item, type = type))
-  if (get("obj_first")) {
-    items <- rev(items)
-  }
-  paste(items, collapse = get("sep"))
+  make_citation(x, template = template)
 }
 
 make_citation <- function(x, ...) {
   UseMethod("make_citation")
 }
 
-make_citation.default <- function(x, ..., template = class(x)) {
+make_citation.default <- function(x, ..., template) {
   cast(template, pkg_details(x))
 }
 
@@ -200,10 +163,6 @@ make_citation.r <- function(x, ...) {
     ver = get_version("base"),
     ref = "@base"
   ))
-}
-
-make_citation.obj <- function(x, ..., type) {
-  cast("obj", list(obj = x, type = type))
 }
 
 pkg_details <- function(pkg) {
