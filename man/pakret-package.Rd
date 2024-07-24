@@ -14,9 +14,9 @@ to a '.bib' file directly from within your document.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/arnaudgallou/plume}
+  \item \url{https://github.com/arnaudgallou/pakret}
   \item \url{https://arnaudgallou.github.io/pakret/}
-  \item Report bugs at \url{https://github.com/arnaudgallou/plume/issues}
+  \item Report bugs at \url{https://github.com/arnaudgallou/pakret/issues}
 }
 
 }
