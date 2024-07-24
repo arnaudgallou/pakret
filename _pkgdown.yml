@@ -1,0 +1,16 @@
+url: https://arnaudgallou.github.io/pakret/
+template:
+  bootstrap: 5
+  package: cygne
+  includes:
+    after_body: >
+      <script data-goatcounter="https://arangacas-pakret.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+reference:
+- title: Functions
+  contents:
+  - pkrt
+  - pkrt_list
+  - pkrt_set
+development:
+  mode: auto
