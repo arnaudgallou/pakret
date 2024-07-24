@@ -11,6 +11,15 @@ References and cites 'R' packages on the fly in 'R Markdown' and
 citations of 'R' packages and other 'R' objects, and adds their reference
 to a '.bib' file directly from within your document.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/arnaudgallou/plume}
+  \item \url{https://arnaudgallou.github.io/pakret/}
+  \item Report bugs at \url{https://github.com/arnaudgallou/plume/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Arnaud Gallou \email{arangacas@gmail.com} (\href{https://orcid.org/0000-0002-1002-4247}{ORCID}) [copyright holder]
 
