@@ -39,9 +39,7 @@ your document:
     library(pakret)
     ```
 
-    Maps were created using `r pkrt(foo)`.
-
-    We used `r pkrt(bar::blah)` to compute X.
+    We used `r pkrt("foo")` to analyse the data.
 
     ## References
 
@@ -49,18 +47,13 @@ pakret handles everything for you.
 
 Here’s the markdown output produced by the document above:
 
-    Maps were created using the ‘foo’ package version 1.0.0 (Fastandfurius,
-    Clausus, and Lastopus 2020).
-
-    We used the ‘blah’ function from the ‘bar’ package version 0.2.0
-    (Itisalapsus 2024) to compute X.
+    We used the ‘foo’ package version 1.0.0 (Fastandfurius, Clausus, and
+    Lastopus 2020) to analyse the data.
 
     ## References
 
     Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
     Alea Jacta Est*.
-
-    Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
 
 Unhappy with the default templates? pakret lets you define your own:
 
@@ -75,14 +68,14 @@ Unhappy with the default templates? pakret lets you define your own:
     pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")
     ```
 
-    We used `r pkrt(foo)` to create the maps.
+    We used `r pkrt("foo")` to analyse the data.
 
     ## References
 
 Which gives:
 
     We used the R package foo (v. 1.0.0; Fastandfurius, Clausus, and
-    Lastopus (2020)) to create the maps.
+    Lastopus (2020)) to analyse the data.
 
     ## References
 
@@ -101,14 +94,15 @@ It’s also possible to cite a collection of packages with `pkrt_list()`:
     library(pakret)
     ```
 
-    We used the following packages: `r pkrt_list("foo", "bar")`.
+    We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
 
     ## References
 
 Here’s the result:
 
-    We used the following packages: ‘foo’ v. 1.0.0 (Fastandfurius, Clausus,
-    and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus 2024).
+    We analyse the data using the following packages: ‘foo’ v. 1.0.0
+    (Fastandfurius, Clausus, and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus
+    2024).
 
     ## References
 
