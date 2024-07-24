@@ -1,6 +1,7 @@
 url: https://arnaudgallou.github.io/pakret/
 template:
   bootstrap: 5
+  package: cygne
 reference:
 - title: Functions
   contents:
