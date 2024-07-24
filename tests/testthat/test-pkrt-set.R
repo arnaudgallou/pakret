@@ -1,23 +1,14 @@
 test_that("custom templates work", {
   load_foo()
-  local_settings(obj = ":type :obj", pkg = ":ref :ver :pkg")
-  expect_equal(pkrt(foo::bar), "function bar @foo 1.0.0 foo")
-})
-
-test_that("custom settings work", {
-  load_foo()
-  local_settings(obj_first = FALSE, sep = " | ")
-  expect_equal(
-    pkrt(foo::bar),
-    "the 'foo' package version 1.0.0 [@foo] | the 'bar' function from"
-  )
+  local_settings(pkg = ":ref :ver :pkg")
+  expect_equal(pkrt("foo"), "@foo 1.0.0 foo")
 })
 
 test_that("`NULL` resets settings to their default value", {
   load_foo()
   pkrt_set(pkg = ":ref :ver :pkg")
   pkrt_set(pkg = NULL)
-  expect_equal(pkrt(foo), "the 'foo' package version 1.0.0 [@foo]")
+  expect_equal(pkrt("foo"), "the 'foo' package version 1.0.0 [@foo]")
 })
 
 test_that("writing bib entries in the desired file works", {
@@ -25,7 +16,7 @@ test_that("writing bib entries in the desired file works", {
   dir <- local_files(n_bib = 2L, make_template(lines = dedent("
     ```{r}
     pkrt_set(bib = 2L)
-    pkrt(foo)
+    pkrt('foo')
     ```
   ")))
 
@@ -51,12 +42,6 @@ test_that("pkrt_set() gives meaningful error messages", {
     ))
     (expect_error(
       pkrt_set(foo = 1)
-    ))
-    (expect_error(
-      pkrt_set(sep = 1)
-    ))
-    (expect_error(
-      pkrt_set(obj_first = 1)
     ))
     (expect_error(
       pkrt_set(pkg = 1)

@@ -49,7 +49,7 @@ pak::pak("arnaudgallou/pakret")
 Simply use `pkrt()` whenever you want to cite an R package or object in your document:
 
 ````{r, include = FALSE}
-template <- pakret:::dedent("
+template <- pakret:::dedent('
   ---
   bibliography: %s
   ---
@@ -60,12 +60,10 @@ template <- pakret:::dedent("
   library(pakret)
   ```
   %s
-  Maps were created using `r pkrt(foo)`.
-
-  We used `r pkrt(bar::blah)` to compute X.
+  We used `r pkrt("foo")` to analyse the data.
 
   ## References
-")
+')
 ````
 
 ```{r, echo = FALSE, class.output = "default"}
@@ -98,7 +96,7 @@ template <- pakret:::dedent('
   pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")
   ```
   %s
-  We used `r pkrt(foo)` to create the maps.
+  We used `r pkrt("foo")` to analyse the data.
 
   ## References
 ')
@@ -131,7 +129,7 @@ template <- pakret:::dedent('
   library(pakret)
   ```
   %s
-  We used the following packages: `r pkrt_list("foo", "bar")`.
+  We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
 
   ## References
 ')

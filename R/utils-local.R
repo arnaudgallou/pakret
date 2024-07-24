@@ -1,3 +1,9 @@
+dedent <- function(x) {
+  indentation <- sub("(?s)\\S*\\R(\\s*).+", "\\1", x, perl = TRUE)
+  x <- gsub(paste0("(?m)^", indentation), "", x, perl = TRUE)
+  trimws(x)
+}
+
 render <- function(...) {
   rmarkdown::render(..., output_format = "md_document", quiet = TRUE)
 }

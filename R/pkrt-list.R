@@ -40,7 +40,7 @@ itemize_citations <- function(pkgs) {
   names(pkgs) <- pkgs
   citations <- lapply(pkgs, function(pkg) {
     check_pkg(pkg)
-    citation <- cite(pkg)
+    citation <- cite(pkg, template = "pkg_list")
     attributes(citation) <- pkg_details(pkg)
     citation
   })

@@ -18,9 +18,9 @@ references to.
 \details{
 Valid parameters are:
 \itemize{
-\item \strong{obj}\if{html}{\out{<br>}}
-\verb{<character> = "the ':obj' :type from"}\if{html}{\out{<br>}}
-Template used to cite a particular object from a package.
+\item \strong{bib}\if{html}{\out{<br>}}
+\verb{<character|numeric> = 1L}\if{html}{\out{<br>}}
+Name or index of the \code{.bib} file to save references to.
 \item \strong{pkg}\if{html}{\out{<br>}}
 \verb{<character> = "the ':pkg' package version :ver [:ref]"}\if{html}{\out{<br>}}
 Template used to cite a package.
@@ -30,16 +30,6 @@ Template used in \code{pkrt_list()}.
 \item \strong{r}\if{html}{\out{<br>}}
 \verb{<character> = "R version :ver [:ref]"}\if{html}{\out{<br>}}
 Template used to cite R.
-\item \strong{bib}\if{html}{\out{<br>}}
-\verb{<character|numeric> = 1L}\if{html}{\out{<br>}}
-Name or index of the \code{.bib} file to save references to.
-\item \strong{obj_first}\if{html}{\out{<br>}}
-\verb{<logical> = TRUE}\if{html}{\out{<br>}}
-Should \code{obj} and \code{pkg} be reversed?
-\item \strong{sep}\if{html}{\out{<br>}}
-\verb{<character> = " "}\if{html}{\out{<br>}}
-Separator used to separate \code{obj} and \code{pkg}. This parameter is only useful
-for people writing in languages that don't separate words with a space.
 }
 
 New settings only apply to citations that come after \code{pkrt_set()}. This means
@@ -50,9 +40,9 @@ Use \code{NULL} to reset a parameter to its default value.
 }
 \examples{
 pkrt_set(pkg = ":pkg (v. :ver) :ref")
-pkrt(pakret)
+pkrt("pakret")
 
 # `NULL` resets parameters to their default value
 pkrt_set(pkg = NULL)
-pkrt(pakret)
+pkrt("pakret")
 }

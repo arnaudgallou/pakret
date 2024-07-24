@@ -52,18 +52,11 @@
 # pkrt() gives meaningful error messages
 
     Code
-      (expect_error(pkrt(a)))
+      (expect_error(pkrt(1)))
+    Output
+      <simpleError: `x` must be a character vector.>
+    Code
+      (expect_error(pkrt("a")))
     Output
       <simpleError: Package `a` doesn't exist or isn't installed.>
-    Code
-      (expect_error(pkrt(pakret, object_type = 1)))
-    Output
-      <simpleError: `object_type` must be a string.>
-    Code
-      (expect_error({
-        withr::local_options(pakret.check_obj = TRUE)
-        pkrt(pakret::foo)
-      }))
-    Output
-      <simpleError: `foo` isn't exported from the package `pakret`.>
 
