@@ -1,0 +1,11 @@
+url: https://arnaudgallou.github.io/pakret/
+template:
+  bootstrap: 5
+reference:
+- title: Functions
+  contents:
+  - pkrt
+  - pkrt_list
+  - pkrt_set
+development:
+  mode: auto
