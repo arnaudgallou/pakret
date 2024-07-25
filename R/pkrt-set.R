@@ -98,7 +98,7 @@ make_pkrt_set_details <- function() {
     }
     sprintf(dedent(layout), key, value$type, deparse(default), value[[1]])
   })
-  paste(out, collapse = "\n\n")
+  collapse(out)
 }
 
 details <- list(

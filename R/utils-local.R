@@ -89,7 +89,7 @@ make_bib_entries <- function(types) {
   entries <- lapply(types, function(type) {
     sprintf(bib, type, switch_bib_field(type))
   })
-  paste(entries, collapse = "\n\n")
+  collapse(entries)
 }
 
 switch_bib_field <- function(x) {

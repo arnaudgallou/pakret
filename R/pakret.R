@@ -6,6 +6,10 @@ eol <- function() {
   if (.Platform$OS.type == "unix") "\n" else "\r\n"
 }
 
+collapse <- function(x) {
+  paste(x, collapse = strrep(eol(), 2L))
+}
+
 bib_name <- function(x) {
   sub("\\.bib$", "", basename(x))
 }
@@ -13,15 +17,6 @@ bib_name <- function(x) {
 extract <- function(x, pattern) {
   locs <- gregexpr(pattern, x, perl = TRUE)
   regmatches(x, locs)[[1]]
-}
-
-extract_refs <- function() {
-  bib <- bib_read()
-  refs <- extract(bib, "(?mi)^@[a-z]+\\{\\K[^,]+")
-  if (is_empty(refs)) {
-    return()
-  }
-  refs
 }
 
 as_pkg <- function(x) {
@@ -54,6 +49,24 @@ bib_fetch <- function() {
   get_path(file)
 }
 
+get_path <- function(x) {
+  if (!is_partial_path(x)) {
+    return(x)
+  }
+  path_ls <- dir(pattern = basename(x), recursive = TRUE)
+  x <- path_ls[grepl(x, path_ls, fixed = TRUE)]
+  if (is_empty(x)) path_ls else x
+}
+
+extract_refs <- function() {
+  bib <- bib_read()
+  refs <- extract(bib, "(?mi)^@[a-z]+\\{\\K[^,]+")
+  if (is_empty(refs)) {
+    return()
+  }
+  refs
+}
+
 bib_read <- function() {
   out <- readr::read_file(get("file"))
   if (!is_blank(out)) {
@@ -72,28 +85,11 @@ bib_write <- function() {
 
 make_lines <- function() {
   eol <- eol()
-  out <- paste(get("items"), collapse = strrep(eol, 2L))
+  out <- collapse(get("items"))
   if (get("append")) {
     out <- paste0(eol, out)
   }
   paste0(out, eol)
-}
-
-cast <- function(x, items) {
-  template <- get(x)
-  do.call(sprintf, c(as_sprintf(template), items[vars(template)]))
-}
-
-as_sprintf <- function(x) {
-  gsub(regex$placeholder, "%s", x, perl = TRUE)
-}
-
-vars <- function(x) {
-  extract(x, "(?<=\\B:)[a-z]+\\b")
-}
-
-get_version <- function(x) {
-  unname(getNamespaceVersion(x))
 }
 
 add_ref <- function(x) {
@@ -134,16 +130,8 @@ insert_pkg_key <- function(x, key) {
   sub("^@[^{]+\\{\\K(?=,)", key, x, perl = TRUE)
 }
 
-get_path <- function(x) {
-  if (!is_partial_path(x)) {
-    return(x)
-  }
-  path_ls <- dir(pattern = basename(x), recursive = TRUE)
-  x <- path_ls[grepl(x, path_ls, fixed = TRUE)]
-  if (is_empty(x)) path_ls else x
-}
-
 cite <- function(x, template = class(x)) {
+  check_pkg(x)
   if (is_rendering_context()) {
     add_ref(x)
   }
@@ -165,10 +153,27 @@ make_citation.r <- function(x, ...) {
   ))
 }
 
+cast <- function(x, items) {
+  template <- get(x)
+  do.call(sprintf, c(as_sprintf(template), items[vars(template)]))
+}
+
+as_sprintf <- function(x) {
+  gsub(regex$placeholder, "%s", x, perl = TRUE)
+}
+
+vars <- function(x) {
+  extract(x, "(?<=\\B:)[a-z]+\\b")
+}
+
 pkg_details <- function(pkg) {
   list(
     pkg = pkg,
     ver = get_version(pkg),
     ref = paste0("@", pkg)
   )
+}
+
+get_version <- function(x) {
+  unname(getNamespaceVersion(x))
 }

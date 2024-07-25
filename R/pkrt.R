@@ -11,7 +11,5 @@
 #' @export
 pkrt <- function(x) {
   check_character(x)
-  pkg <- as_pkg(x)
-  check_pkg(pkg)
-  cite(pkg)
+  cite(as_pkg(x))
 }
