@@ -6,6 +6,10 @@ eol <- function() {
   if (.Platform$OS.type == "unix") "\n" else "\r\n"
 }
 
+collapse <- function(x) {
+  paste(x, collapse = strrep(eol(), 2L))
+}
+
 bib_name <- function(x) {
   sub("\\.bib$", "", basename(x))
 }
@@ -72,7 +76,7 @@ bib_write <- function() {
 
 make_lines <- function() {
   eol <- eol()
-  out <- paste(get("items"), collapse = strrep(eol, 2L))
+  out <- collapse(get("items"))
   if (get("append")) {
     out <- paste0(eol, out)
   }
@@ -144,6 +148,7 @@ get_path <- function(x) {
 }
 
 cite <- function(x, template = class(x)) {
+  check_pkg(x)
   if (is_rendering_context()) {
     add_ref(x)
   }

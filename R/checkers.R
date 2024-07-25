@@ -151,7 +151,7 @@ check_missing_vars <- function(x, valid, arg) {
 check_invalid_vars <- function(x, allowed, arg) {
   not_allowed <- seek(x, !x %in% allowed)
   if (is.null(not_allowed)) {
-    return()
+    return(invisible())
   }
   abort("Invalid placeholder `:%s` found in `%s`.", not_allowed, arg)
 }
