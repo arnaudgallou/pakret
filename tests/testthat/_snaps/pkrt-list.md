@@ -24,7 +24,7 @@
         ..- attr(*, "pkg")= chr "bar"
         ..- attr(*, "ver")= chr "0.2.0"
         ..- attr(*, "ref")= chr "@bar"
-       - attr(*, "class")= chr [1:2] "pkrt_list" "list"
+       - attr(*, "class")= chr "pkrt_list"
 
 # pkrt_list() gives meaningful error messages
 
