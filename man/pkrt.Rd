@@ -7,7 +7,7 @@
 pkrt(x)
 }
 \arguments{
-\item{x}{A string of the package to cite. Use \code{pkrt("R")} to cite R.}
+\item{x}{A string of the package to cite.}
 }
 \value{
 A character string.
@@ -21,4 +21,6 @@ references of the package already exist.
 }
 \examples{
 pkrt("pakret")
+
+pkrt("R")
 }

@@ -13,7 +13,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 ## Overview
 
 pakret is a minimalist R package citation tool to reference and cite R
-packages and objects on the fly in R Markdown and Quarto.
+and R packages on the fly in R Markdown and Quarto.
 
 ## Installation
 
@@ -26,8 +26,8 @@ pak::pak("arnaudgallou/pakret")
 
 ## Usage
 
-Simply use `pkrt()` whenever you want to cite an R package or object in
-your document:
+Simply use `pkrt()` whenever you want to cite R or an R package in your
+document:
 
     ---
     bibliography: references.bib
@@ -110,3 +110,7 @@ Here’s the result:
     Alea Jacta Est*.
 
     Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+
+By default, pakret writes new references into the first `.bib` file
+specified in the bibliography list. You can change which `.bib` file to
+save references to using `pkrt_set()`.

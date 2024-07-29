@@ -4,10 +4,12 @@
 #'   in which case `pkrt()` automatically references the cited package in the
 #'   first (by default) `.bib` file specified in the YAML header if no
 #'   references of the package already exist.
-#' @param x A string of the package to cite. Use `pkrt("R")` to cite R.
+#' @param x A string of the package to cite.
 #' @returns A character string.
 #' @examples
 #' pkrt("pakret")
+#'
+#' pkrt("R")
 #' @export
 pkrt <- function(x) {
   check_character(x)

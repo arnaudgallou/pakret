@@ -7,7 +7,7 @@
 pkrt_list(...)
 }
 \arguments{
-\item{...}{Character vectors, separated by a comma, of packages to cite.}
+\item{...}{Character vectors, separated by commas, of packages to cite.}
 }
 \value{
 A list of package citations.
@@ -21,9 +21,9 @@ automatically references the cited packages in the first (by default)
 already exist.
 }
 \details{
-This function automatically discards duplicate and base packages. I recommend
-using \code{pkrt_list()} in combination with \code{renv::dependencies()} to cite all
-the packages used in a project.
+This function automatically discards duplicate and base packages. You can use
+\code{pkrt_list()} in combination with \code{renv::dependencies()} to cite all the
+packages used in a project or directory.
 }
 \examples{
 # Create a list of citations
