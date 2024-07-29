@@ -32,5 +32,5 @@
       pkrt_list(1)
     Condition
       Error:
-      ! `pkgs` must be a character vector.
+      ! `...` must be a character vector.
 

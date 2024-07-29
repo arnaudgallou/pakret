@@ -23,7 +23,7 @@
 #' @export
 pkrt_list <- function(...) {
   pkgs <- unique(c(...))
-  check_character(pkgs)
+  check_character(pkgs, arg = "...")
   pkgs <- drop_base(pkgs)
   itemize_citations(pkgs)
 }
