@@ -4,10 +4,10 @@
 \alias{pkrt}
 \title{Cite R or an R package}
 \usage{
-pkrt(x)
+pkrt(pkg)
 }
 \arguments{
-\item{x}{A string of the package to cite.}
+\item{pkg}{A string of the package to cite.}
 }
 \value{
 A character string.

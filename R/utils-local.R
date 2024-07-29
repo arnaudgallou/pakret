@@ -71,8 +71,7 @@ local_pkg <- function(Package, ..., bib_entries = NULL, env = parent.frame()) {
   if (!is.null(bib_entries)) {
     add_bib_entries(pkg_path, bib_entries)
   }
-  pkgload::load_all(pkg_path, export_all = FALSE, quiet = TRUE)
-  withr::defer(pkgload::unload(Package, quiet = TRUE), envir = env)
+  load_pkg(pkg_path, env)
 }
 
 add_bib_entries <- function(dir, types) {
@@ -102,6 +101,11 @@ switch_bib_field <- function(x) {
 
 bib_field <- function(name) {
   sprintf('%s = "%s"', name, name)
+}
+
+load_pkg <- function(path, env) {
+  withr::defer(pkgload::unload(basename(path), quiet = TRUE), envir = env)
+  pkgload::load_all(path, export_all = FALSE, quiet = TRUE)
 }
 
 load_foo <- function(..., env = parent.frame()) {
