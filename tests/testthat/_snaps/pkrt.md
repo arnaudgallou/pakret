@@ -54,7 +54,7 @@
     Code
       (expect_error(pkrt(1)))
     Output
-      <simpleError: `x` must be a character vector.>
+      <simpleError: `pkg` must be a character vector.>
     Code
       (expect_error(pkrt("a")))
     Output
