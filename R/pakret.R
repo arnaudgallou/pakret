@@ -11,7 +11,7 @@ collapse <- function(x) {
 }
 
 bib_name <- function(x) {
-  sub("\\.bib$", "", basename(x))
+  sub("(?i)\\.bib$", "", basename(x))
 }
 
 extract <- function(x, pattern) {

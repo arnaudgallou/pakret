@@ -16,7 +16,7 @@ is_referenced <- function(pkg) {
 
 is_bib <- function(x) {
   n <- nchar(x)
-  substr(x, n - 3L, n) == ".bib"
+  tolower(substr(x, n - 3L, n)) == ".bib"
 }
 
 is_unit_set <- function(x) {
@@ -75,41 +75,41 @@ error <- function(msg, ...) {
   sprintf(msg, ...)
 }
 
-caller_arg <- function(x) {
+caller_arg <- function() {
   deparse(substitute(x, env = parent.frame()))
 }
 
-check_type <- function(x, asserter, expected, arg = caller_arg(x)) {
+check_type <- function(x, asserter, expected, arg = caller_arg()) {
   if (asserter(x)) {
     return(invisible())
   }
   abort(paste0("`%s` must be ", expected, "."), arg)
 }
 
-check_string <- function(x, arg = caller_arg(x)) {
+check_string <- function(x, arg = caller_arg()) {
   check_type(x, is_string, "a string", arg)
 }
 
-check_bool <- function(x, arg = caller_arg(x)) {
+check_bool <- function(x, arg = caller_arg()) {
   check_type(x, is.logical, "`TRUE` or `FALSE`", arg)
 }
 
-check_character <- function(x, arg = caller_arg(x)) {
+check_character <- function(x, arg = caller_arg()) {
   check_type(x, is.character, "a character vector", arg)
 }
 
-check_unit_set <- function(x, arg = caller_arg(x)) {
+check_unit_set <- function(x, arg = caller_arg()) {
   check_atomic(x, arg)
   asserter <- function(x) is.null(x) || is_unit_set(x)
   check_type(x, asserter, "a single element vector", arg)
 }
 
-check_atomic <- function(x, arg = caller_arg(x)) {
+check_atomic <- function(x, arg = caller_arg()) {
   asserter <- function(x) is.null(x) || is.atomic(x)
   check_type(x, asserter, "an atomic vector", arg)
 }
 
-check_named <- function(x, arg = caller_arg(x)) {
+check_named <- function(x, arg = caller_arg()) {
   if (is_named(x)) {
     return(invisible())
   }
@@ -156,7 +156,7 @@ check_invalid_vars <- function(x, allowed, arg) {
   abort("Invalid placeholder `:%s` found in `%s`.", not_allowed, arg)
 }
 
-check_option_bib <- function(x, arg = caller_arg(x)) {
+check_option_bib <- function(x, arg = caller_arg()) {
   asserter <- function(x) is.numeric(x) || is_string(x)
   check_type(x, asserter, "a numeric value or a string", arg)
 }
@@ -183,7 +183,7 @@ check_bib_target <- function(x) {
   abort("`%s.bib` doesn't exist in the bibliography list.", x)
 }
 
-check_bib <- function(x, arg = caller_arg(x)) {
+check_bib <- function(x, arg = caller_arg()) {
   check_type(x, is_bib, "a `.bib` file", arg)
 }
 
