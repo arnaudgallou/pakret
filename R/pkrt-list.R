@@ -5,11 +5,11 @@
 #'   automatically references the cited packages in the first (by default)
 #'   `.bib` file specified in the YAML header if no references of the packages
 #'   already exist.
-#' @param ... Character vectors, separated by a comma, of packages to cite.
+#' @param ... Character vectors, separated by commas, of packages to cite.
 #' @details
-#' This function automatically discards duplicate and base packages. I recommend
-#' using `pkrt_list()` in combination with `renv::dependencies()` to cite all
-#' the packages used in a project.
+#' This function automatically discards duplicate and base packages. You can use
+#' `pkrt_list()` in combination with `renv::dependencies()` to cite all the
+#' packages used in a project or directory.
 #' @return A list of package citations.
 #' @examples
 #' # Create a list of citations
