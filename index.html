@@ -53,7 +53,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>pakret is a minimalist R package citation tool to reference and cite R packages and objects on the fly in R Markdown and Quarto.</p>
+<p>pakret is a minimalist R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -66,7 +66,7 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>Simply use <code><a href="reference/pkrt.html">pkrt()</a></code> whenever you want to cite an R package or object in your document:</p>
+<p>Simply use <code><a href="reference/pkrt.html">pkrt()</a></code> whenever you want to cite R or an R package in your document:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>bibliography<span class="sc">:</span> references.bib</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="sc">---</span></span>
@@ -137,6 +137,7 @@
 <span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span>
 <span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a></span>
 <span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span>Bar<span class="sc">:</span> Tempus Edax Rerum<span class="sc">*</span>.</span></code></pre></div>
+<p>By default, pakret writes new references into the first <code>.bib</code> file specified in the bibliography list. You can change which <code>.bib</code> file to save references to using <code><a href="reference/pkrt_set.html">pkrt_set()</a></code>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
