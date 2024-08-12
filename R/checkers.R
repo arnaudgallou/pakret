@@ -31,10 +31,6 @@ is_blank <- function(x) {
   grepl("^\\s*$", x)
 }
 
-is_partial_path <- function(x) {
-  !grepl("^(?:~|\\.\\.)\\/", x) && grepl("/", x, fixed = TRUE)
-}
-
 is_template <- function(x) {
   x %in% template_keys
 }
