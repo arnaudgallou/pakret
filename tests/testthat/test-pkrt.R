@@ -38,6 +38,7 @@ test_that("multi-bib entries are properly handled", {
 
   expect_match(res, "@Manual\\{foo,")
   expect_match(res, "@Book\\{bar,")
+  expect_length(extract(res, "(?m)^@"), 2L)
 })
 
 test_that("citing the same package again doesn't add a new bib entry", {
