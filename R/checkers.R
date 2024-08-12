@@ -11,7 +11,7 @@ is_empty <- function(x) {
 }
 
 is_referenced <- function(pkg) {
-  pkg %in% get("refs")
+  pkg %in% get("keys")
 }
 
 is_bib <- function(x) {
@@ -32,7 +32,7 @@ is_blank <- function(x) {
 }
 
 is_template <- function(x) {
-  x %in% template_keys
+  x %in% .template_keys
 }
 
 is_named <- function(x) {

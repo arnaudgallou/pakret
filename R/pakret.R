@@ -1,4 +1,4 @@
-regex <- list(
+.regex <- list(
   placeholder = "\\B:[a-z]+\\b"
 )
 
@@ -34,10 +34,10 @@ as_r <- function() {
 bib_init <- function() {
   check_bibliography()
   set(
-    items = list(),
+    refs = list(),
     append = FALSE,
     file = bib_fetch(),
-    refs = extract_refs()
+    keys = extract_keys()
   )
 }
 
@@ -54,13 +54,13 @@ get_path <- function(x) {
   file.path(dir, x)
 }
 
-extract_refs <- function() {
+extract_keys <- function() {
   bib <- bib_read()
-  refs <- extract(bib, "(?mi)^@[a-z]+\\{\\K[^,]+")
-  if (is_empty(refs)) {
+  keys <- extract(bib, "(?mi)^@[a-z]+\\{\\K[^,]+")
+  if (is_empty(keys)) {
     return()
   }
-  refs
+  keys
 }
 
 bib_read <- function() {
@@ -72,7 +72,7 @@ bib_read <- function() {
 }
 
 bib_write <- function() {
-  if (is_empty(get("items"))) {
+  if (is_empty(get("refs"))) {
     return(invisible())
   }
   lines <- make_lines()
@@ -81,7 +81,7 @@ bib_write <- function() {
 
 make_lines <- function() {
   eol <- eol()
-  out <- collapse(get("items"))
+  out <- collapse(get("refs"))
   if (get("append")) {
     out <- paste0(eol, out)
   }
@@ -93,8 +93,8 @@ add_ref <- function(x) {
     return()
   }
   set(
-    items = append(get_citation(x), to = "items"),
-    refs = append(x, to = "refs")
+    refs = append(get_citation(x), to = "refs"),
+    keys = append(x, to = "keys")
   )
 }
 
@@ -155,7 +155,7 @@ cast <- function(x, items) {
 }
 
 as_sprintf <- function(x) {
-  gsub(regex$placeholder, "%s", x, perl = TRUE)
+  gsub(.regex$placeholder, "%s", x, perl = TRUE)
 }
 
 vars <- function(x) {

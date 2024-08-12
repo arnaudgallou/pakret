@@ -41,10 +41,10 @@ update_setting <- function(key, value) {
 
 get_template_keys <- function() {
   x <- .__settings__
-  names(x)[grepl(regex$placeholder, x, perl = TRUE)]
+  names(x)[grepl(.regex$placeholder, x, perl = TRUE)]
 }
 
-template_keys <- get_template_keys()
+.template_keys <- get_template_keys()
 
 reset <- function(x) {
   update(.__settings__[x])
@@ -81,14 +81,14 @@ set_option.bib <- function(x) {
 
 # doc ----
 
-layout <- "
+.layout <- "
   * **%s**<br>
     `<%s> = %s`<br>
     %s
 "
 
 make_pkrt_set_details <- function() {
-  out <- lapply(names(details), function(key, value = details[[key]]) {
+  out <- lapply(names(.details), function(key, value = .details[[key]]) {
     default <- .__settings__[[key]]
     if (!is.list(value)) {
       value <- as.list(value)
@@ -96,12 +96,12 @@ make_pkrt_set_details <- function() {
     if (is.null(value$type)) {
       value$type <- typeof(default)
     }
-    sprintf(dedent(layout), key, value$type, deparse(default), value[[1]])
+    sprintf(dedent(.layout), key, value$type, deparse(default), value[[1]])
   })
   collapse(out)
 }
 
-details <- list(
+.details <- list(
   bib = list(
     "Name or index of the `.bib` file to save references to.",
     type = "character|numeric"
