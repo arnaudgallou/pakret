@@ -33,7 +33,7 @@ make_template <- function(lines, to_render = TRUE) {
 
 ## Overview
 
-pakret is a minimalist R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.
+pakret is a minimalistic R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.
 
 ## Installation
 
@@ -148,5 +148,5 @@ make_template(template) |>
   cat()
 ```
 
-By default, pakret writes new references into the first `.bib` file specified in the bibliography list.
+Note that by default pakret writes new references into the first `.bib` file specified in the bibliography list.
 You can change which `.bib` file to save references to using `pkrt_set()`.
