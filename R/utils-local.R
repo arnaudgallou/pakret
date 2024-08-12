@@ -13,7 +13,8 @@ local_rmd <- function(lines = "", ...) {
 }
 
 local_bib <- function(lines, ...) {
-  withr::local_tempfile(lines = lines, fileext = ".bib", ...)
+  dir <- withr::local_tempfile(lines = lines, fileext = ".bib", ...)
+  basename(dir)
 }
 
 local_bibs <- function(lines, n, ...) {

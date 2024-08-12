@@ -15,13 +15,13 @@ BugReports: https://github.com/arnaudgallou/pakret/issues
 Depends:
     R (>= 3.6.0)
 Imports:
+    knitr,
     readr (>= 1.0.0),
     rmarkdown,
     utils,
     withr (>= 2.5.0)
 Suggests:
     callr (>= 3.7.5),
-    knitr,
     pkgload,
     testthat (>= 3.0.0),
     usethis

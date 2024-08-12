@@ -50,12 +50,8 @@ bib_fetch <- function() {
 }
 
 get_path <- function(x) {
-  if (!is_partial_path(x)) {
-    return(x)
-  }
-  path_ls <- dir(pattern = basename(x), recursive = TRUE)
-  x <- path_ls[grepl(x, path_ls, fixed = TRUE)]
-  if (is_empty(x)) path_ls else x
+  dir <- knitr::opts_knit$get("output.dir")
+  file.path(dir, x)
 }
 
 extract_refs <- function() {
