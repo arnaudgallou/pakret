@@ -41,6 +41,8 @@ document:
 
     We used `r pkrt("foo")` to analyse the data.
 
+    Figures were created using `r pkrt("bar")`.
+
     ## References
 
 pakret handles everything for you.
@@ -50,10 +52,15 @@ Here’s the markdown output produced by the document above:
     We used the ‘foo’ package version 1.0.0 (Fastandfurius, Clausus, and
     Lastopus 2020) to analyse the data.
 
+    Figures were created using the ‘bar’ package version 0.2.0 (Itisalapsus
+    2024).
+
     ## References
 
     Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
     Alea Jacta Est*.
+
+    Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
 
 Unhappy with the default templates? pakret lets you define your own:
 

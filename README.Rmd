@@ -62,6 +62,8 @@ template <- pakret:::dedent('
   %s
   We used `r pkrt("foo")` to analyse the data.
 
+  Figures were created using `r pkrt("bar")`.
+
   ## References
 ')
 ````
