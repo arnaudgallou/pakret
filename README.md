@@ -17,7 +17,14 @@ and R packages on the fly in R Markdown and Quarto.
 
 ## Installation
 
-You can install pakret from GitHub with:
+Install pakret from CRAN with:
+
+``` r
+install.packages("pakret")
+```
+
+Alternatively, you can install the development version of pakret from
+GitHub with:
 
 ``` r
 # install.packages("pak")

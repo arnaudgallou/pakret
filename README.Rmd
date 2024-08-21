@@ -37,7 +37,13 @@ pakret is a minimalistic R package citation tool to reference and cite R and R p
 
 ## Installation
 
-You can install pakret from GitHub with:
+Install pakret from CRAN with:
+
+```{r, eval = FALSE}
+install.packages("pakret")
+```
+
+Alternatively, you can install the development version of pakret from GitHub with:
 
 ```{r, eval = FALSE}
 # install.packages("pak")
