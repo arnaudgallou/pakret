@@ -28,6 +28,7 @@ make_template <- function(lines, to_render = TRUE) {
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/pakret)](https://CRAN.R-project.org/package=pakret)
 [![R-CMD-check](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
@@ -37,7 +38,13 @@ pakret is a minimalistic R package citation tool to reference and cite R and R p
 
 ## Installation
 
-You can install pakret from GitHub with:
+Install pakret from CRAN with:
+
+```{r, eval = FALSE}
+install.packages("pakret")
+```
+
+Alternatively, you can install the development version of pakret from GitHub with:
 
 ```{r, eval = FALSE}
 # install.packages("pak")
@@ -61,6 +68,8 @@ template <- pakret:::dedent('
   ```
   %s
   We used `r pkrt("foo")` to analyse the data.
+
+  Figures were created using `r pkrt("bar")`.
 
   ## References
 ')
