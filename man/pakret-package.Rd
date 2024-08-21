@@ -11,8 +11,8 @@ References and cites 'R' and 'R' packages on the fly in 'R Markdown' and 'Quarto
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/arnaudgallou/pakret}
   \item \url{https://arnaudgallou.github.io/pakret/}
+  \item \url{https://github.com/arnaudgallou/pakret}
   \item Report bugs at \url{https://github.com/arnaudgallou/pakret/issues}
 }
 
