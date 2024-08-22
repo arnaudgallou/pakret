@@ -1,11 +1,11 @@
 Package: pakret
-Title: Cite R Packages on the Fly in R Markdown and Quarto
+Title: Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'
 Version: 0.0.0.9000
 Authors@R:
     person("Arnaud", "Gallou", , "arangacas@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-1002-4247"))
 Description: References and cites 'R' and 'R' packages on the fly in 'R
-    Markdown' and 'Quarto'. 'pakret' provides a minimalistic 'API' that
+    Markdown' and 'Quarto'. 'pakret' provides a minimalistic API that
     generates preformatted citations of 'R' and 'R' packages, and adds
     their reference to a '.bib' file directly from within your document.
 License: GPL (>= 3)
