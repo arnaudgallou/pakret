@@ -25,8 +25,6 @@ Suggests:
     pkgload,
     testthat (>= 3.0.0),
     usethis
-VignetteBuilder:
-    knitr
 Config/Needs/website: arnaudgallou/cygne
 Config/testthat/edition: 3
 Encoding: UTF-8
