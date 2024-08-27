@@ -29,11 +29,17 @@ pkrt_list <- function(...) {
 }
 
 drop_base <- function(x) {
-  x[!x %in% get_base_pkgs()]
+  x[!x %in% base_pkgs()]
 }
 
-get_base_pkgs <- function() {
-  rownames(utils::installed.packages(.Library, priority = "base"))
+base_pkgs <- function() {
+  if (getRversion() >= "4.4.0") {
+    return(asNamespace("tools")$standard_package_names()[["base"]])
+  }
+  c(
+    "base", "compiler", "datasets", "graphics", "grDevices", "grid", "methods",
+    "parallel", "splines", "stats", "stats4", "tcltk", "tools", "utils"
+  )
 }
 
 itemize_citations <- function(pkgs) {
