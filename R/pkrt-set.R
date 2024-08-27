@@ -13,6 +13,7 @@
 #' to alter pakret's behavior for a few specific citations only.
 #'
 #' Use `NULL` to reset a parameter to its default value.
+#' @returns This function is called for its side-effect. It returns no value.
 #' @examples
 #' pkrt_set(pkg = ":pkg (v. :ver) :ref")
 #' pkrt("pakret")

@@ -10,7 +10,7 @@
 #' This function automatically discards duplicate and base packages. You can use
 #' `pkrt_list()` in combination with `renv::dependencies()` to cite all the
 #' packages used in a project or directory.
-#' @return A list of package citations.
+#' @returns A list of package citations with S3 class `pkrt_list`.
 #' @examples
 #' # Create a list of citations
 #' citations <- pkrt_list("pakret", "readr", "withr")

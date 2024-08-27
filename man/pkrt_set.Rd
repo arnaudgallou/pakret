@@ -10,6 +10,9 @@ pkrt_set(...)
 \item{...}{Key-value pairs, separated by commas, of parameters to set. See
 details.}
 }
+\value{
+This function is called for its side-effect. It returns no value.
+}
 \description{
 This function allows you to configure pakret's settings, e.g. to
 customize citation templates or control which \code{.bib} file to save

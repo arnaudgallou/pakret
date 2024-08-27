@@ -10,7 +10,7 @@ pkrt_list(...)
 \item{...}{Character vectors, separated by commas, of packages to cite.}
 }
 \value{
-A list of package citations.
+A list of package citations with S3 class \code{pkrt_list}.
 }
 \description{
 Creates a list of package citations that can be turned into a
