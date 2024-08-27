@@ -10,7 +10,7 @@
 #' This function automatically discards duplicate and base packages. You can use
 #' `pkrt_list()` in combination with `renv::dependencies()` to cite all the
 #' packages used in a project or directory.
-#' @return A list of package citations.
+#' @returns A list of package citations with S3 class `pkrt_list`.
 #' @examples
 #' # Create a list of citations
 #' citations <- pkrt_list("pakret", "readr", "withr")
@@ -29,11 +29,17 @@ pkrt_list <- function(...) {
 }
 
 drop_base <- function(x) {
-  x[!x %in% get_base_pkgs()]
+  x[!x %in% base_pkgs()]
 }
 
-get_base_pkgs <- function() {
-  rownames(utils::installed.packages(.Library, priority = "base"))
+base_pkgs <- function() {
+  if (getRversion() >= "4.4.0") {
+    return(asNamespace("tools")$standard_package_names()[["base"]])
+  }
+  c(
+    "base", "compiler", "datasets", "graphics", "grDevices", "grid", "methods",
+    "parallel", "splines", "stats", "stats4", "tcltk", "tools", "utils"
+  )
 }
 
 itemize_citations <- function(pkgs) {
