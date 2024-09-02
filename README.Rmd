@@ -115,7 +115,7 @@ template <- pakret:::dedent('
 cat(make_template(template, FALSE))
 ```
 
-Which gives:
+<!-- separator -->
 
 ```{r, echo = FALSE}
 make_template(template) |>
@@ -148,7 +148,7 @@ template <- pakret:::dedent('
 cat(make_template(template, FALSE))
 ```
 
-Here's the result:
+<!-- separator -->
 
 ```{r, echo = FALSE}
 make_template(template) |>

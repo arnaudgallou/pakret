@@ -88,7 +88,7 @@ Unhappy with the default templates? pakret lets you define your own:
 
     ## References
 
-Which gives:
+<!-- separator -->
 
     We used the R package foo (v. 1.0.0; Fastandfurius, Clausus, and
     Lastopus (2020)) to analyse the data.
@@ -114,7 +114,7 @@ It’s also possible to cite a collection of packages with `pkrt_list()`:
 
     ## References
 
-Here’s the result:
+<!-- separator -->
 
     We analyse the data using the following packages: ‘foo’ v. 1.0.0
     (Fastandfurius, Clausus, and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus
