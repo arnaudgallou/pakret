@@ -49,11 +49,7 @@ itemize_citations <- function(pkgs) {
     attributes(citation) <- pkg_details(pkg)
     citation
   })
-  as_pkrt_list(citations)
-}
-
-as_pkrt_list <- function(x) {
-  structure(x, class = "pkrt_list")
+  add_class(citations, "pkrt_list")
 }
 
 #' @export
