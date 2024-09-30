@@ -128,7 +128,7 @@ insert_pkg_key <- function(x, key) {
 
 cite <- function(x, template = class(x)) {
   check_pkg(x)
-  if (is_rendering_context()) {
+  if (is_rendering()) {
     add_ref(x)
   }
   make_citation(x, template = template)

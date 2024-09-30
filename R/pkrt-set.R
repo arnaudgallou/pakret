@@ -69,7 +69,7 @@ set_option.template <- function(x) {
 }
 
 set_option.bib <- function(x) {
-  if (!is_rendering_context()) {
+  if (!is_rendering()) {
     return(invisible())
   }
   check_option_bib(x, arg = names(x))
