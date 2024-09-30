@@ -15,9 +15,9 @@ test_that("citation lists can be turned into data frames", {
   expect_equal(
     as.data.frame(citations),
     data.frame(
-      Package = c("foo", "bar"),
-      Version = c("1.0.0", "0.2.0"),
-      Reference = c("@foo", "@bar")
+      Package = c("bar", "foo"),
+      Version = c("0.2.0", "1.0.0"),
+      Reference = c("@bar", "@foo")
     )
   )
 })
