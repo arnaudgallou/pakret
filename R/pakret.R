@@ -23,12 +23,16 @@ as_pkg <- function(x) {
   if (is_r(x)) {
     return(as_r())
   }
-  class(x) <- "pkg"
-  x
+  add_class(x, "pkg")
 }
 
 as_r <- function() {
-  structure("base", class = "r")
+  add_class("base", cls = "r")
+}
+
+add_class <- function(x, cls) {
+  class(x) <- cls
+  x
 }
 
 bib_init <- function() {
@@ -128,7 +132,7 @@ insert_pkg_key <- function(x, key) {
 
 cite <- function(x, template = class(x)) {
   check_pkg(x)
-  if (is_rendering_context()) {
+  if (is_rendering()) {
     add_ref(x)
   }
   make_citation(x, template = template)

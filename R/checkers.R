@@ -1,8 +1,12 @@
-is_rendering_context <- function() {
-  is_rendering() && has_metadata() && getOption("pakret.render_mode", TRUE)
+is_rendering <- function() {
+  isTRUE(get("render"))
 }
 
-is_rendering <- function() {
+is_rendering_context <- function() {
+  is_knitting() && has_metadata() && getOption("pakret.render_mode", TRUE)
+}
+
+is_knitting <- function() {
   isTRUE(getOption("knitr.in.progress"))
 }
 
