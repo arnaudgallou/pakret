@@ -54,10 +54,16 @@ itemize_citations <- function(pkgs) {
 
 #' @export
 as.data.frame.pkrt_list <- function(x, ...) {
+  x <- sort(x)
   x <- do.call(rbind.data.frame, lapply(x, attributes))
   row.names(x) <- NULL
   names(x) <- c("Package", "Version", "Reference")
   x
+}
+
+sort.pkrt_list <- function(x, ...) {
+  pkgs <- vapply(x, function(.x) attr(.x, "pkg"), character(1L))
+  x[factor(pkgs)]
 }
 
 #' @export
