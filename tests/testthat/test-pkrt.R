@@ -14,7 +14,7 @@ test_that("bib entries are properly appended to bib files", {
 
   load_bar()
   template <- make_template(lines = "`r pkrt('foo')`")
-  dir <- local_files(template, bib_lines = get_citation("bar"))
+  dir <- local_files(template, bib_lines = get_reference("bar"))
   res <- read_local_file(dir, target = "bib")
   expect_snapshot(cat(res))
 })
@@ -27,18 +27,21 @@ test_that("multi-bib entries are properly handled", {
     ---
     ```{r}
     library(pakret)
-    pakret:::load_foo(bib_entries = c('Article', 'Manual'))
-    pakret:::load_bar(bib_entries = c('Book', 'Article'))
+    pakret:::load_foo(bib_entries = c('Book', 'Manual'))
+    pakret:::load_bar(bib_entries = c('article', 'book'))
+    pakret:::local_pkg('baz', bib_entries = c('Misc', 'Article'))
     ```
     `r pkrt('foo')`
     `r pkrt('bar')`
+    `r pkrt('baz')`
   ")
   dir <- local_files(template)
   res <- read_local_file(dir, target = "bib")
 
   expect_match(res, "@Manual\\{foo,")
   expect_match(res, "@Book\\{bar,")
-  expect_length(extract(res, "(?m)^@"), 2L)
+  expect_match(res, "@Misc\\{baz,")
+  expect_length(extract(res, "(?m)^@"), 3L)
 })
 
 test_that("citing the same package again doesn't add a new bib entry", {
@@ -51,7 +54,7 @@ test_that("citing the same package again doesn't add a new bib entry", {
 test_that("citing no packages doesn't modify bib files", {
   skip_on_os("windows")
   load_foo()
-  citation <- get_citation("foo")
+  citation <- get_reference("foo")
   dir <- local_files(make_template(lines = ""), bib_lines = citation)
   res <- read_local_file(dir, target = "bib")
   expect_equal(res, paste0(citation, eol()))

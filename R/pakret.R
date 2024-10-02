@@ -97,7 +97,7 @@ add_ref <- function(x) {
     return()
   }
   set(
-    refs = append(get_citation(x), to = "refs"),
+    refs = append(get_reference(x), to = "refs"),
     keys = append(x, to = "keys")
   )
 }
@@ -106,24 +106,27 @@ append <- function(x, to) {
   c(get(to), x)
 }
 
-get_citation <- function(x) {
+get_reference <- function(x) {
   ref <- utils::citation(x)
   ref <- format(ref, style = "bibtex")
   if (length(ref) > 1L) {
-    ref <- pick_citation(ref)
+    ref <- pick_reference(ref)
   }
   insert_pkg_key(ref, key = x)
 }
 
-pick_citation <- function(x) {
-  if (has_manual(x)) {
-    return(pick_manual(x))
+pick_reference <- function(x) {
+  for (type in c("manual", "book")) {
+    if (has_bibtex(x, type)) {
+      x <- pick_bibtex(x, type)
+      break
+    }
   }
   x[[1]]
 }
 
-pick_manual <- function(x) {
-  x[is_manual(x)]
+pick_bibtex <- function(x, type) {
+  x[bibtex_is(x, type)]
 }
 
 insert_pkg_key <- function(x, key) {
