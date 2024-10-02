@@ -86,7 +86,7 @@ add_bib_entries <- function(dir, types) {
 
 make_bib_entries <- function(types) {
   bib <- 'bibentry("%s", title = "title", author = "authors", year = "year",%s)'
-  entries <- lapply(types, function(type) {
+  entries <- lapply(tolower(types), function(type) {
     sprintf(bib, type, switch_bib_field(type))
   })
   collapse(entries)
@@ -94,8 +94,8 @@ make_bib_entries <- function(types) {
 
 switch_bib_field <- function(x) {
   switch(x,
-    Article = bib_field("journal"),
-    Book = bib_field("publisher"),
+    article = bib_field("journal"),
+    book = bib_field("publisher"),
     ""
   )
 }
