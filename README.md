@@ -44,7 +44,6 @@ document:
 
     ```{r}
     #| include: false
-
     library(pakret)
     ```
 
@@ -62,6 +61,34 @@ Here’s the markdown output produced by the document above:
     Lastopus 2020) to analyse the data.
 
     Figures were created using the ‘bar’ package version 0.2.0 (Itisalapsus
+    2024).
+
+    ## References
+
+    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
+    Alea Jacta Est*.
+
+    Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+
+It’s also possible to cite a collection of packages with `pkrt_list()`:
+
+    ---
+    bibliography: references.bib
+    ---
+
+    ```{r}
+    #| include: false
+    library(pakret)
+    ```
+
+    We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
+
+    ## References
+
+<!-- separator -->
+
+    We analyse the data using the following packages: ‘foo’ v. 1.0.0
+    (Fastandfurius, Clausus, and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus
     2024).
 
     ## References
@@ -97,35 +124,6 @@ Unhappy with the default templates? pakret lets you define your own:
 
     Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
     Alea Jacta Est*.
-
-It’s also possible to cite a collection of packages with `pkrt_list()`:
-
-    ---
-    bibliography: references.bib
-    ---
-
-    ```{r}
-    #| include: false
-
-    library(pakret)
-    ```
-
-    We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
-
-    ## References
-
-<!-- separator -->
-
-    We analyse the data using the following packages: ‘foo’ v. 1.0.0
-    (Fastandfurius, Clausus, and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus
-    2024).
-
-    ## References
-
-    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
-    Alea Jacta Est*.
-
-    Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
 
 Note that by default pakret writes new references into the first `.bib`
 file specified in the bibliography list. You can change which `.bib`
