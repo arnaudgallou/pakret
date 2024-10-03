@@ -7,7 +7,7 @@
 pkrt(pkg)
 }
 \arguments{
-\item{pkg}{A string of the package to cite.}
+\item{pkg}{Name of the package to cite.}
 }
 \value{
 A character string.
