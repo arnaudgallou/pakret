@@ -63,7 +63,6 @@ template <- pakret:::dedent('
 
   ```{r}
   #| include: false
-
   library(pakret)
   ```
   %s
@@ -90,7 +89,7 @@ make_template(template) |>
   cat()
 ```
 
-Unhappy with the default templates? pakret lets you define your own:
+It's also possible to cite a collection of packages with `pkrt_list()`:
 
 ````{r, include = FALSE}
 template <- pakret:::dedent('
@@ -100,12 +99,10 @@ template <- pakret:::dedent('
 
   ```{r}
   #| include: false
-
   library(pakret)
-  pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")
   ```
   %s
-  We used `r pkrt("foo")` to analyse the data.
+  We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
 
   ## References
 ')
@@ -124,7 +121,7 @@ make_template(template) |>
   cat()
 ```
 
-It's also possible to cite a collection of packages with `pkrt_list()`:
+Unhappy with the default templates? pakret lets you define your own:
 
 ````{r, include = FALSE}
 template <- pakret:::dedent('
@@ -136,9 +133,10 @@ template <- pakret:::dedent('
   #| include: false
 
   library(pakret)
+  pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")
   ```
   %s
-  We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
+  We used `r pkrt("foo")` to analyse the data.
 
   ## References
 ')
