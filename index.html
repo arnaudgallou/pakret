@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">pakret</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,15 +77,14 @@
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="st">```</span><span class="at">{r}</span></span>
 <span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="at">#| include: false</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="at">library(pakret)</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>We used <span class="st">`</span><span class="at">r pkrt("foo")</span><span class="st">`</span> to analyse the data.</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>Figures were created using <span class="st">`</span><span class="at">r pkrt("bar")</span><span class="st">`</span>.</span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="do">## References</span></span></code></pre></div>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="at">library(pakret)</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>We used <span class="st">`</span><span class="at">r pkrt("foo")</span><span class="st">`</span> to analyse the data.</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>Figures were created using <span class="st">`</span><span class="at">r pkrt("bar")</span><span class="st">`</span>.</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="do">## References</span></span></code></pre></div>
 <p>pakret handles everything for you.</p>
 <p>Here’s the markdown output produced by the document above:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>We used the ‘foo’ package version <span class="dv">1</span>.<span class="fl">0.0</span> (Fastandfurius, Clausus, and</span>
@@ -100,30 +99,31 @@
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span>Bar<span class="sc">:</span> Tempus Edax Rerum<span class="sc">*</span>.</span></code></pre></div>
-<p>Unhappy with the default templates? pakret lets you define your own:</p>
+<p>It’s also possible to cite a collection of packages with <code><a href="reference/pkrt_list.html">pkrt_list()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>bibliography<span class="sc">:</span> references.bib</span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="st">```</span><span class="at">{r}</span></span>
 <span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">#| include: false</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="at">library(pakret)</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="at">pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="at">library(pakret)</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>We analyse the data using the following packages<span class="sc">:</span> <span class="st">`</span><span class="at">r pkrt_list("foo", "bar")</span><span class="st">`</span>.</span>
 <span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>We used <span class="st">`</span><span class="at">r pkrt("foo")</span><span class="st">`</span> to analyse the data.</span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="do">## References</span></span></code></pre></div>
-<p>Which gives:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>We used the R package <span class="fu">foo</span> (v. <span class="dv">1</span>.<span class="fl">0.0</span>; Fastandfurius, Clausus, and</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">Lastopus</span> (<span class="dv">2020</span>)) to analyse the data.</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="do">## References</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span> <span class="sc">*</span>Foo<span class="sc">:</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span></code></pre></div>
-<p>It’s also possible to cite a collection of packages with <code><a href="reference/pkrt_list.html">pkrt_list()</a></code>:</p>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="do">## References</span></span></code></pre></div>
+<!-- separator -->
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>We analyse the data using the following packages<span class="sc">:</span> ‘foo’ v. <span class="dv">1</span>.<span class="fl">0.0</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>(Fastandfurius, Clausus, and Lastopus <span class="dv">2020</span>), ‘bar’ v. <span class="dv">0</span>.<span class="fl">2.0</span> (Itisalapsus</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="dv">2024</span>).</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="do">## References</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span> <span class="sc">*</span>Foo<span class="sc">:</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span>Bar<span class="sc">:</span> Tempus Edax Rerum<span class="sc">*</span>.</span></code></pre></div>
+<p>Unhappy with the default templates? pakret lets you define your own:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>bibliography<span class="sc">:</span> references.bib</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="sc">---</span></span>
@@ -132,22 +132,20 @@
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="at">#| include: false</span></span>
 <span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a></span>
 <span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="at">library(pakret)</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>We analyse the data using the following packages<span class="sc">:</span> <span class="st">`</span><span class="at">r pkrt_list("foo", "bar")</span><span class="st">`</span>.</span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="do">## References</span></span></code></pre></div>
-<p>Here’s the result:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>We analyse the data using the following packages<span class="sc">:</span> ‘foo’ v. <span class="dv">1</span>.<span class="fl">0.0</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>(Fastandfurius, Clausus, and Lastopus <span class="dv">2020</span>), ‘bar’ v. <span class="dv">0</span>.<span class="fl">2.0</span> (Itisalapsus</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="dv">2024</span>).</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="do">## References</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span> <span class="sc">*</span>Foo<span class="sc">:</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span>Bar<span class="sc">:</span> Tempus Edax Rerum<span class="sc">*</span>.</span></code></pre></div>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="at">pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>We used <span class="st">`</span><span class="at">r pkrt("foo")</span><span class="st">`</span> to analyse the data.</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="do">## References</span></span></code></pre></div>
+<!-- separator -->
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>We used the R package <span class="fu">foo</span> (v. <span class="dv">1</span>.<span class="fl">0.0</span>; Fastandfurius, Clausus, and</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">Lastopus</span> (<span class="dv">2020</span>)) to analyse the data.</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="do">## References</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span> <span class="sc">*</span>Foo<span class="sc">:</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span></code></pre></div>
 <p>Note that by default pakret writes new references into the first <code>.bib</code> file specified in the bibliography list. You can change which <code>.bib</code> file to save references to using <code><a href="reference/pkrt_set.html">pkrt_set()</a></code>.</p>
 </div>
 </div>
@@ -190,13 +188,13 @@
 
 
     <footer><p>Developed by Arnaud Gallou.</p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 
     </footer>
 </div>
 
 
 
-  <script data-goatcounter="https://r-pakret.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://gh-pakret.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
