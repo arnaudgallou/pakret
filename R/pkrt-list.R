@@ -63,7 +63,7 @@ as.data.frame.pkrt_list <- function(x, ...) {
 
 sort.pkrt_list <- function(x, ...) {
   pkgs <- vapply(x, function(.x) attr(.x, "pkg"), character(1L))
-  x[factor(pkgs)]
+  x[sort(pkgs)]
 }
 
 #' @export
