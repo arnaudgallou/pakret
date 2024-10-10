@@ -1,5 +1,7 @@
 # pakret (development version)
 
+* pakret now can cite references that have a pre-written key (#18).
+
 * Fixed alphabetical ordering of package names in `as.data.frame.pkrt_list()` (#19).
 
 # pakret 0.2.0
