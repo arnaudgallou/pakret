@@ -66,6 +66,28 @@ test_that("pkrt() cites R", {
   expect_match(pkrt("base"), regexp = pattern, perl = TRUE)
 })
 
+test_that("pakret handles references that have a premade key (#18)", {
+  skip_on_os("windows")
+  template <- dedent("
+    ---
+    bibliography: %s
+    ---
+    ```{r}
+    library(pakret)
+    path <- pakret:::local_pkg('baz')
+    pakret:::add_bib_entries(
+      path,
+      \"bibentry('manual', key = 'abc', title = 'title')\"
+    )
+    ```
+    `r pkrt('baz')`
+  ")
+  dir <- local_files(template)
+  res <- read_local_file(dir, target = "bib")
+
+  expect_match(res, "@Manual\\{baz,")
+})
+
 # errors
 
 test_that("pkrt() gives meaningful error messages", {
