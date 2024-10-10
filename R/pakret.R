@@ -130,7 +130,7 @@ pick_bibtex <- function(x, type) {
 }
 
 insert_pkg_key <- function(x, key) {
-  sub("^@[^{]+\\{\\K(?=,)", key, x, perl = TRUE)
+  sub("^@[^{]+\\{\\K[^,]*", key, x, perl = TRUE)
 }
 
 cite <- function(x, template = class(x)) {
