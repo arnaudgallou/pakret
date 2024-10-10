@@ -1,4 +1,4 @@
-# pakret (development version)
+# pakret 0.2.1
 
 * pakret now can cite references that have a pre-written key (#18).
 
