@@ -61,27 +61,30 @@ local_pkg <- function(Package, ..., bib_entries = NULL, env = parent.frame()) {
   dir <- withr::local_tempdir(.local_envir = env)
   withr::local_libpaths(dir, action = "prefix", .local_envir = env)
   pkg_path <- file.path(dir, Package)
+  create_package(pkg_path, Package, ...)
+  if (!is.null(bib_entries)) {
+    lines <- make_bib_entries(bib_entries)
+    add_bib_entries(pkg_path, lines)
+  }
+  load_pkg(pkg_path, env)
+  invisible(pkg_path)
+}
+
+create_package <- function(path, Package, ...) {
   usethis::ui_silence(
     usethis::create_package(
-      path = pkg_path,
+      path = path,
       fields = list(Type = "Package", Package = Package, ...),
       rstudio = FALSE,
       open = FALSE
     )
   )
-  if (!is.null(bib_entries)) {
-    add_bib_entries(pkg_path, bib_entries)
-  }
-  load_pkg(pkg_path, env)
 }
 
-add_bib_entries <- function(dir, types) {
+add_bib_entries <- function(dir, lines) {
   path <- file.path(dir, "inst", "CITATION")
   dir.create(dirname(path))
-  readr::write_file(
-    make_bib_entries(types),
-    path
-  )
+  readr::write_file(lines, path)
 }
 
 make_bib_entries <- function(types) {
