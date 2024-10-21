@@ -25,6 +25,7 @@
 pkrt_set <- function(...) {
   items <- list(...)
   check_named(items, arg = "...")
+  check_settings(items)
   for (key in names(items)) {
     update_setting(key, items[[key]])
   }
@@ -57,10 +58,6 @@ update <- function(x) {
 
 set_option <- function(x) {
   UseMethod("set_option")
-}
-
-set_option.default <- function(x) {
-  abort("`%s` isn't a valid setting.", names(x))
 }
 
 set_option.template <- function(x) {

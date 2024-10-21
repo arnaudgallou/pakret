@@ -156,6 +156,15 @@ check_invalid_vars <- function(x, allowed, arg) {
   abort("Invalid placeholder `:%s` found in `%s`.", not_allowed, arg)
 }
 
+check_settings <- function(x) {
+  x <- names(x)
+  invalid <- seek(x, !x %in% names(.__settings__))
+  if (is.null(invalid)) {
+    return(invisible())
+  }
+  abort("`%s` isn't a valid setting.", invalid)
+}
+
 check_option_bib <- function(x, arg = caller_arg()) {
   asserter <- function(x) is.numeric(x) || is_string(x)
   check_type(x, asserter, "a numeric value or a string", arg)
