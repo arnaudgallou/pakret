@@ -54,6 +54,9 @@ reset <- function(x) {
 
 update <- function(x) {
   do.call(set, as.list(x))
+  if (is_updating_bib(x)) {
+    bib_set()
+  }
 }
 
 set_option <- function(x) {
@@ -74,7 +77,7 @@ set_option.bib <- function(x) {
     x[] <- bib_name(x)
   }
   check_bib_target(x)
-  set(bib = x, file = bib_fetch())
+  update(x)
 }
 
 # doc ----

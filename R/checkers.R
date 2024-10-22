@@ -23,6 +23,10 @@ is_bib <- function(x) {
   tolower(substr(x, n - 3L, n)) == ".bib"
 }
 
+is_updating_bib <- function(x) {
+  is_rendering() && names(x) == "bib"
+}
+
 is_unit_set <- function(x) {
   length(x) == 1L
 }

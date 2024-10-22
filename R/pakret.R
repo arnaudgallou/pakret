@@ -37,6 +37,10 @@ add_class <- function(x, cls) {
 
 bib_init <- function() {
   check_bibliography()
+  bib_set()
+}
+
+bib_set <- function() {
   set(
     refs = list(),
     append = FALSE,
