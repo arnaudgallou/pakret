@@ -35,6 +35,28 @@ test_that("writing bib entries in the desired file works", {
   expect_length(extract(res, "(?m)^@"), 2L)
 })
 
+test_that("writing bib entries in multiple file works", {
+  skip_on_os("windows")
+  template <- make_template(lines = dedent("
+    ```{r}
+    pkrt_set(bib = 2L)
+    pkrt('bar')
+
+    pkrt_set(bib = NULL)
+    pkrt('foo')
+    ```
+  "))
+  dir <- local_files(template, bib = local_set(n = 2L))
+
+  res <- read_local_file(dir, target = "file_1.bib")
+  expect_match(res, "^@Manual\\{foo,")
+  expect_length(extract(res, "(?m)^@"), 1L)
+
+  res <- read_local_file(dir, target = "file_2.bib")
+  expect_match(res, "^@Manual\\{bar,")
+  expect_length(extract(res, "(?m)^@"), 1L)
+})
+
 # errors
 
 test_that("pkrt_set() gives meaningful error messages", {
