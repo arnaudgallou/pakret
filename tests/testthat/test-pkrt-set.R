@@ -13,7 +13,7 @@ test_that("`NULL` resets settings to their default value", {
 
 test_that("writing bib entries in the desired file works", {
   skip_on_os("windows")
-  dir <- local_files(n_bib = 2L, make_template(lines = dedent("
+  dir <- local_files(bib = local_set(n = 2L), make_template(lines = dedent("
     ```{r}
     pkrt_set(bib = 2L)
     pkrt('foo')

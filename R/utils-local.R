@@ -17,12 +17,14 @@ local_bib <- function(lines, ...) {
   basename(dir)
 }
 
-local_bibs <- function(lines, n, ...) {
-  if (n == 1L) {
-    return(local_bib(lines, ...))
+local_bibs <- function(settings, ...) {
+  if (settings$n == 1L) {
+    return(local_bib(settings$lines, ...))
   }
-  nms <- paste0("file_", seq_len(n))
-  lapply(nms, function(nm) local_bib(lines, pattern = nm, ...))
+  lapply(seq_len(settings$n), function(i) {
+    lines <- if (i == settings$write_to) settings$lines else ""
+    local_bib(lines, pattern = paste0("file_", i), ...)
+  })
 }
 
 insert_bibs <- function(lines, bibs) {
@@ -32,10 +34,14 @@ insert_bibs <- function(lines, bibs) {
   sprintf(lines, bibs)
 }
 
-local_files <- function(rmd_lines, bib_lines = "", n_bib = 1L, env = parent.frame()) {
+local_set <- function(lines = "", n = 1L, write_to = n) {
+  list(lines = lines, n = n, write_to = write_to)
+}
+
+local_files <- function(rmd_lines, bib = local_set(), env = parent.frame()) {
   dir <- withr::local_tempdir(.local_envir = env)
-  if (!is.null(n_bib)) {
-    bibs <- local_bibs(bib_lines, n = n_bib, tmpdir = dir, .local_envir = env)
+  if (!is.null(bib)) {
+    bibs <- local_bibs(bib, tmpdir = dir, .local_envir = env)
     rmd_lines <- insert_bibs(rmd_lines, bibs)
   }
   rmd <- local_rmd(rmd_lines, tmpdir = dir, .local_envir = env)

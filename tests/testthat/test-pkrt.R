@@ -14,7 +14,7 @@ test_that("bib entries are properly appended to bib files", {
 
   load_bar()
   template <- make_template(lines = "`r pkrt('foo')`")
-  dir <- local_files(template, bib_lines = get_reference("bar"))
+  dir <- local_files(template, bib = local_set(lines = get_reference("bar")))
   res <- read_local_file(dir, target = "bib")
   expect_snapshot(cat(res))
 })
@@ -55,7 +55,8 @@ test_that("citing no packages doesn't modify bib files", {
   skip_on_os("windows")
   load_foo()
   citation <- get_reference("foo")
-  dir <- local_files(make_template(lines = ""), bib_lines = citation)
+  template <- make_template(lines = "")
+  dir <- local_files(template, bib = local_set(lines = citation))
   res <- read_local_file(dir, target = "bib")
   expect_equal(res, paste0(citation, eol()))
 })
