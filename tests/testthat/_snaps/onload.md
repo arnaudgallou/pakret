@@ -1,7 +1,7 @@
 # pakret initialisation gives meaningful error messages
 
     Code
-      local_files(make_template(meta = "title: no bibs"), n_bib = NULL)
+      local_files(make_template(meta = "title: no bibs"), bib = NULL)
     Condition
       Error:
       ! package or namespace load failed for 'pakret':
@@ -13,7 +13,7 @@
 ---
 
     Code
-      local_files(make_template(meta = "bibliography: foo.md"), n_bib = NULL)
+      local_files(make_template(meta = "bibliography: foo.md"), bib = NULL)
     Condition
       Error:
       ! package or namespace load failed for 'pakret':
