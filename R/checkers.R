@@ -24,7 +24,7 @@ is_bib <- function(x) {
 }
 
 is_updating_bib <- function(x) {
-  is_rendering() && names(x) == "bib"
+  is_rendering() && names(x) == "bib" && x != get("bib")
 }
 
 is_unit_set <- function(x) {
@@ -83,7 +83,7 @@ caller_arg <- function() {
   deparse(substitute(x, env = parent.frame()))
 }
 
-check_type <- function(x, asserter, expected, arg = caller_arg()) {
+check_type <- function(x, asserter, expected, arg) {
   if (asserter(x)) {
     return(invisible())
   }
