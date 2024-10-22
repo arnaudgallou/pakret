@@ -53,11 +53,11 @@ reset <- function(x) {
 }
 
 update <- function(x) {
-  do.call(set, as.list(x))
   if (is_updating_bib(x)) {
     bib_write()
-    bib_set()
+    withr::defer(bib_set())
   }
+  do.call(set, as.list(x))
 }
 
 set_option <- function(x) {
