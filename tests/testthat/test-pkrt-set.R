@@ -13,18 +13,26 @@ test_that("`NULL` resets settings to their default value", {
 
 test_that("writing bib entries in the desired file works", {
   skip_on_os("windows")
-  dir <- local_files(bib = local_set(n = 2L), make_template(lines = dedent("
+  template <- make_template(lines = dedent("
     ```{r}
     pkrt_set(bib = 2L)
     pkrt('foo')
     ```
-  ")))
+  "))
+  load_bar()
+  dir <- local_files(template, bib = local_set(
+    # the pre-written ref is to ensure that pkrt_set() resets bib metadata (#22)
+    lines = get_reference("bar"),
+    n = 2L
+  ))
 
   res <- read_local_file(dir, target = "file_1.bib")
   expect_match(res, "^\\R$", perl = TRUE)
 
   res <- read_local_file(dir, target = "file_2.bib")
-  expect_match(res, "^@Manual\\{foo,")
+  expect_match(res, "@Manual\\{bar,")
+  expect_match(res, "@Manual\\{foo,")
+  expect_length(extract(res, "(?m)^@"), 2L)
 })
 
 # errors
