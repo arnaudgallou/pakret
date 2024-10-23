@@ -1,4 +1,4 @@
-# pakret (development version)
+# pakret 0.2.2
 
 * pakret can now write references in multiple `.bib` files within the same document (#26).
 
