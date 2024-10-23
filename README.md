@@ -47,9 +47,9 @@ document:
     library(pakret)
     ```
 
-    We used `r pkrt("foo")` to analyse the data.
+    We used `r pkrt("foo")` to extract the data.
 
-    Figures were created using `r pkrt("bar")`.
+    Analyses were performed using `r pkrt("bar")`.
 
     ## References
 
@@ -58,10 +58,10 @@ pakret handles everything for you.
 Here’s the markdown output produced by the document above:
 
     We used the ‘foo’ package version 1.0.0 (Fastandfurius, Clausus, and
-    Lastopus 2020) to analyse the data.
+    Lastopus 2020) to extract the data.
 
-    Figures were created using the ‘bar’ package version 0.2.0 (Itisalapsus
-    2024).
+    Analyses were performed using the ‘bar’ package version 0.2.0
+    (Itisalapsus 2024).
 
     ## References
 
@@ -81,15 +81,14 @@ It’s also possible to cite a collection of packages with `pkrt_list()`:
     library(pakret)
     ```
 
-    We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
+    We used the following packages: `r pkrt_list("foo", "bar")`.
 
     ## References
 
 <!-- separator -->
 
-    We analyse the data using the following packages: ‘foo’ v. 1.0.0
-    (Fastandfurius, Clausus, and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus
-    2024).
+    We used the following packages: ‘foo’ v. 1.0.0 (Fastandfurius, Clausus,
+    and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus 2024).
 
     ## References
 

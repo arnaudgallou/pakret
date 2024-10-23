@@ -66,9 +66,9 @@ template <- pakret:::dedent('
   library(pakret)
   ```
   %s
-  We used `r pkrt("foo")` to analyse the data.
+  We used `r pkrt("foo")` to extract the data.
 
-  Figures were created using `r pkrt("bar")`.
+  Analyses were performed using `r pkrt("bar")`.
 
   ## References
 ')
@@ -102,7 +102,7 @@ template <- pakret:::dedent('
   library(pakret)
   ```
   %s
-  We analyse the data using the following packages: `r pkrt_list("foo", "bar")`.
+  We used the following packages: `r pkrt_list("foo", "bar")`.
 
   ## References
 ')
