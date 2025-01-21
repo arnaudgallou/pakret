@@ -182,5 +182,5 @@ pkg_details <- function(pkg) {
 }
 
 get_version <- function(x) {
-  unname(getNamespaceVersion(x))
+  as.character(packageVersion(x))
 }
