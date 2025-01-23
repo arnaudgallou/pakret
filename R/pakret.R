@@ -147,7 +147,7 @@ cite <- function(x, template = class(x)) {
 
 cast <- function(x, items) {
   template <- get(x)
-  do.call(sprintf, c(as_sprintf(template), items[vars(template)]))
+  do.call(sprintf, c(template$str, items[template$vars]))
 }
 
 as_sprintf <- function(x) {
