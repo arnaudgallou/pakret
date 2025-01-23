@@ -67,6 +67,10 @@ has_metadata <- function() {
   !is_empty(rmarkdown::metadata)
 }
 
+has_placeholder <- function(x) {
+  grepl(.regex$placeholder, x, perl = TRUE)
+}
+
 abort <- function(msg, ...) {
   stop(error(msg, ...), call. = FALSE)
 }

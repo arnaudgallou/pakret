@@ -43,7 +43,7 @@ update_setting <- function(key, value) {
 
 get_template_keys <- function() {
   x <- .__settings__
-  names(x)[grepl(.regex$placeholder, x, perl = TRUE)]
+  names(x)[has_placeholder(x)]
 }
 
 .template_keys <- get_template_keys()

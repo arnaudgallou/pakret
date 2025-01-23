@@ -142,27 +142,12 @@ cite <- function(x, template = class(x)) {
   if (is_rendering()) {
     add_ref(x)
   }
-  make_citation(x, template = template)
-}
-
-make_citation <- function(x, ...) {
-  UseMethod("make_citation")
-}
-
-make_citation.default <- function(x, ..., template) {
   cast(template, pkg_details(x))
-}
-
-make_citation.r <- function(x, ...) {
-  cast("r", list(
-    ver = get_version("base"),
-    ref = "@base"
-  ))
 }
 
 cast <- function(x, items) {
   template <- get(x)
-  do.call(sprintf, c(as_sprintf(template), items[vars(template)]))
+  do.call(sprintf, c(template$str, items[template$vars]))
 }
 
 as_sprintf <- function(x) {

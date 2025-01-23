@@ -10,8 +10,16 @@
 set <- function(...) {
   items <- eval(substitute(alist(...)))
   for (key in names(items)) {
-    .__pakret__[[key]] <- eval(items[[key]], envir = parent.frame())
+    .__pakret__[[key]] <- eval_set(items[[key]], envir = parent.frame())
   }
+}
+
+eval_set <- function(x, envir) {
+  x <- eval(x, envir = envir)
+  if (is_string(x) && has_placeholder(x)) {
+    x <- list(str = as_sprintf(x), vars = vars(x))
+  }
+  x
 }
 
 get <- function(x) {
