@@ -53,7 +53,7 @@ test_that("citing no packages doesn't modify bib files", {
   template <- make_template(lines = "")
   dir <- local_files(template, bib = local_set(lines = citation))
   res <- read_local_file(dir, target = "bib")
-  expect_equal(res, paste0(citation, eol()))
+  expect_equal(res, paste0(citation, "\n"))
 })
 
 test_that("pkrt() cites R", {
