@@ -1,5 +1,4 @@
 test_that("pakret initialisation gives meaningful error messages", {
-  skip_on_os("windows")
   expect_snapshot(
     local_files(make_template(meta = "title: no bibs"), bib = NULL),
     error = TRUE
