@@ -12,7 +12,6 @@ test_that("`NULL` resets settings to their default value", {
 })
 
 test_that("writing bib entries in the desired file works", {
-  skip_on_os("windows")
   template <- make_template(lines = dedent("
     ```{r}
     pkrt_set(bib = 2L)
@@ -36,7 +35,6 @@ test_that("writing bib entries in the desired file works", {
 })
 
 test_that("writing bib entries in multiple file works", {
-  skip_on_os("windows")
   template <- make_template(lines = dedent("
     ```{r}
     pkrt_set(bib = 2L)

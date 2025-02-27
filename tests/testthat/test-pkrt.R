@@ -1,12 +1,10 @@
 test_that("pkrt() cites and references packages", {
-  skip_on_os("windows")
   dir <- local_files(make_template(lines = "`r pkrt('foo')`"))
   res <- read_local_file(dir)
   expect_snapshot(cat(res))
 })
 
 test_that("bib entries are properly appended to bib files", {
-  skip_on_os("windows")
   template <- make_template(lines = "`r pkrt('foo')` `r pkrt('bar')`")
   dir <- local_files(template)
   res <- read_local_file(dir, target = "bib")
@@ -20,7 +18,6 @@ test_that("bib entries are properly appended to bib files", {
 })
 
 test_that("multi-bib entries are properly handled", {
-  skip_on_os("windows")
   template <- dedent("
     ---
     bibliography: %s
@@ -45,20 +42,18 @@ test_that("multi-bib entries are properly handled", {
 })
 
 test_that("citing the same package again doesn't add a new bib entry", {
-  skip_on_os("windows")
   dir <- local_files(make_template(lines = strrep("`r pkrt('foo')`", 2L)))
   res <- read_local_file(dir, target = "bib")
   expect_length(extract(res, "(?m)^@"), 1L)
 })
 
 test_that("citing no packages doesn't modify bib files", {
-  skip_on_os("windows")
   load_foo()
   citation <- get_reference("foo")
   template <- make_template(lines = "")
   dir <- local_files(template, bib = local_set(lines = citation))
   res <- read_local_file(dir, target = "bib")
-  expect_equal(res, paste0(citation, eol()))
+  expect_equal(res, paste0(citation, "\n"))
 })
 
 test_that("pkrt() cites R", {
@@ -68,7 +63,6 @@ test_that("pkrt() cites R", {
 })
 
 test_that("pakret handles references that have a premade key (#18)", {
-  skip_on_os("windows")
   template <- dedent("
     ---
     bibliography: %s
