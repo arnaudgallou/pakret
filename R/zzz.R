@@ -1,7 +1,8 @@
 .onLoad <- function(...) {
   do.call(set, .__settings__)
   if (is_rendering_context()) {
-    set(render = TRUE)
+    bibs <- rmarkdown::metadata$bibliography
+    set(render = TRUE, bibliography = bibs)
     bib_init()
     terminate()
   }

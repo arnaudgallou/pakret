@@ -179,8 +179,7 @@ check_option_bib <- function(x, arg = caller_arg()) {
 }
 
 check_bibliography <- function() {
-  bib <- rmarkdown::metadata$bibliography
-  if (!is.null(bib)) {
+  if (!is.null(get("bibliography"))) {
     return(invisible())
   }
   abort(c(
@@ -190,14 +189,25 @@ check_bibliography <- function() {
 }
 
 check_bib_target <- function(x) {
-  bibs <- rmarkdown::metadata$bibliography
-  if (x %in% bib_name(bibs) || x <= length(bibs)) {
+  check_bib_target_(unclass(x), get("bibliography"))
+}
+
+check_bib_target_ <- function(x, bibs) {
+  UseMethod("check_bib_target_")
+}
+
+check_bib_target_.character <- function(x, bibs) {
+  if (x %in% bib_name(bibs)) {
     return(invisible())
   }
-  if (is.numeric(x)) {
-    abort("`bib` index out of bound.")
-  }
   abort("`%s.bib` doesn't exist in the bibliography list.", x)
+}
+
+check_bib_target_.numeric <- function(x, bibs) {
+  if (x > 0L && x <= length(bibs)) {
+    return(invisible())
+  }
+  abort("`bib` index out of bound.")
 }
 
 check_bib <- function(x, arg = caller_arg()) {
