@@ -167,5 +167,5 @@ pkg_details <- function(pkg) {
 }
 
 get_version <- function(x) {
-  as.character(packageVersion(x))
+  as.character(utils::packageVersion(x))
 }
