@@ -50,7 +50,7 @@ bib_set <- function() {
 }
 
 bib_fetch <- function() {
-  bibs <- rmarkdown::metadata$bibliography
+  bibs <- get("bibliography")
   names(bibs) <- bib_name(bibs)
   file <- bibs[[get("bib")]]
   check_bib(file, arg = file)
