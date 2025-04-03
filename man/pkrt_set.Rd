@@ -36,8 +36,8 @@ Template used to cite R.
 }
 
 New settings only apply to citations that come after \code{pkrt_set()}. This means
-that you can redefine the same settings multiple times in the same document
-to alter pakret's behavior for a few specific citations only.
+you can redefine the same settings multiple times in the same document to
+alter pakret's behavior for a few specific citations only.
 
 Use \code{NULL} to reset a parameter to its default value.
 }

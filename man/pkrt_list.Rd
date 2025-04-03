@@ -27,7 +27,7 @@ packages used in a project or directory.
 }
 \examples{
 # Create a list of citations
-citations <- pkrt_list("pakret", "readr", "withr")
+citations <- pkrt_list("pakret", "readr", "knitr")
 
 # You can then turn the citations into a character string
 paste(citations, collapse = ", ")

@@ -102,7 +102,7 @@ template <- pakret:::dedent('
   library(pakret)
   ```
   %s
-  We used the following packages: `r pkrt_list("foo", "bar")`.
+  I used the following packages: `r pkrt_list("foo", "bar")`.
 
   ## References
 ')
@@ -133,7 +133,7 @@ template <- pakret:::dedent('
   #| include: false
 
   library(pakret)
-  pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")
+  pkrt_set(pkg = "the R package *:pkg* [v. :ver, :ref]")
   ```
   %s
   We used `r pkrt("foo")` to analyse the data.
