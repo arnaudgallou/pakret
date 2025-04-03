@@ -81,13 +81,13 @@ It’s also possible to cite a collection of packages with `pkrt_list()`:
     library(pakret)
     ```
 
-    We used the following packages: `r pkrt_list("foo", "bar")`.
+    I used the following packages: `r pkrt_list("foo", "bar")`.
 
     ## References
 
 <!-- separator -->
 
-    We used the following packages: ‘foo’ v. 1.0.0 (Fastandfurius, Clausus,
+    I used the following packages: ‘foo’ v. 1.0.0 (Fastandfurius, Clausus,
     and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus 2024).
 
     ## References
@@ -107,7 +107,7 @@ Unhappy with the default templates? pakret lets you define your own:
     #| include: false
 
     library(pakret)
-    pkrt_set(pkg = "the R package :pkg (v. :ver; :ref)")
+    pkrt_set(pkg = "the R package *:pkg* [v. :ver, :ref]")
     ```
 
     We used `r pkrt("foo")` to analyse the data.
@@ -116,8 +116,8 @@ Unhappy with the default templates? pakret lets you define your own:
 
 <!-- separator -->
 
-    We used the R package foo (v. 1.0.0; Fastandfurius, Clausus, and
-    Lastopus (2020)) to analyse the data.
+    We used the R package *foo* (v. 1.0.0, Fastandfurius, Clausus, and
+    Lastopus 2020) to analyse the data.
 
     ## References
 

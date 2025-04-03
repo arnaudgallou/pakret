@@ -9,8 +9,8 @@
 #' `r make_pkrt_set_details()`
 #'
 #' New settings only apply to citations that come after `pkrt_set()`. This means
-#' that you can redefine the same settings multiple times in the same document
-#' to alter pakret's behavior for a few specific citations only.
+#' you can redefine the same settings multiple times in the same document to
+#' alter pakret's behavior for a few specific citations only.
 #'
 #' Use `NULL` to reset a parameter to its default value.
 #' @returns This function is called for its side-effect. It returns no value.

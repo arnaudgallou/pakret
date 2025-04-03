@@ -13,7 +13,7 @@
 #' @returns A list of package citations with S3 class `pkrt_list`.
 #' @examples
 #' # Create a list of citations
-#' citations <- pkrt_list("pakret", "readr", "withr")
+#' citations <- pkrt_list("pakret", "readr", "knitr")
 #'
 #' # You can then turn the citations into a character string
 #' paste(citations, collapse = ", ")
