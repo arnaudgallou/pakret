@@ -27,12 +27,12 @@ is_updating_bib <- function(x) {
   is_rendering() && names(x) == "bib" && x != get("bib")
 }
 
-is_unit_set <- function(x) {
+is_scalar <- function(x) {
   length(x) == 1L
 }
 
 is_string <- function(x) {
-  is.character(x) && is_unit_set(x)
+  is.character(x) && is_scalar(x)
 }
 
 is_blank <- function(x) {
@@ -106,9 +106,9 @@ check_character <- function(x, arg = caller_arg()) {
   check_type(x, is.character, "a character vector", arg)
 }
 
-check_unit_set <- function(x, arg = caller_arg()) {
+check_scalar <- function(x, arg = caller_arg()) {
   check_atomic(x, arg)
-  asserter <- function(x) is.null(x) || is_unit_set(x)
+  asserter <- function(x) is.null(x) || is_scalar(x)
   check_type(x, asserter, "a single element vector", arg)
 }
 
