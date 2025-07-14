@@ -101,13 +101,10 @@ add_ref <- function(x) {
     return()
   }
   set(
-    refs = append(get_reference(x), to = "refs"),
-    keys = append(x, to = "keys")
+    refs = get_reference(x),
+    keys = x,
+    .add = TRUE
   )
-}
-
-append <- function(x, to) {
-  c(get(to), x)
 }
 
 get_reference <- function(x) {
@@ -116,7 +113,7 @@ get_reference <- function(x) {
   if (length(ref) > 1L) {
     ref <- pick_reference(ref)
   }
-  insert_pkg_key(ref, key = x)
+  insert_key(ref, key = x)
 }
 
 pick_reference <- function(x) {
@@ -133,7 +130,7 @@ pick_bibtex <- function(x, type) {
   x[bibtex_is(x, type)]
 }
 
-insert_pkg_key <- function(x, key) {
+insert_key <- function(x, key) {
   sub("^@[^{]+\\{\\K[^,]*", key, x, perl = TRUE)
 }
 
