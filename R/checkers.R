@@ -129,7 +129,7 @@ check_template <- function(x, arg) {
   vars_curr <- vars(x)
   check_duplicated_vars(vars_curr, arg)
   vars_default <- vars(.__settings__[[arg]])
-  check_missing_vars(vars_curr, vars_default, arg)
+  check_missing_vars(vars_curr, vars_default[vars_default != "ver"], arg)
   check_invalid_vars(vars_curr, vars_default, arg)
 }
 

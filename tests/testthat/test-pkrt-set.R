@@ -2,6 +2,9 @@ test_that("custom templates work", {
   load_foo()
   local_settings(pkg = ":ref :ver :pkg")
   expect_equal(pkrt("foo"), "@foo 1.0.0 foo")
+
+  local_settings(pkg = ":pkg :ref")
+  expect_equal(pkrt("foo"), "foo @foo")
 })
 
 test_that("`NULL` resets settings to their default value", {
