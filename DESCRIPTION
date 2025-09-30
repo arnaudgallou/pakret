@@ -18,7 +18,6 @@ Imports:
     knitr,
     readr (>= 1.0.0),
     rmarkdown,
-    utils,
     withr (>= 2.5.0)
 Suggests:
     callr (>= 3.7.5),
