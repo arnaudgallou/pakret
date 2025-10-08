@@ -83,6 +83,23 @@ test_that("pakret handles references that have a premade key (#18)", {
   expect_match(res, "@Manual\\{baz,")
 })
 
+test_that("pakret works with modified frame stacks (#30)", {
+  template <- dedent("
+    ---
+    bibliography: %s
+    ---
+    ```{r}
+    (function() library(pakret))()
+    pakret:::load_foo()
+    ```
+    `r pkrt('foo')`
+  ")
+  dir <- local_files(template)
+  res <- read_local_file(dir, target = "bib")
+
+  expect_match(res, "@Manual\\{foo,")
+})
+
 # errors
 
 test_that("pkrt() gives meaningful error messages", {
