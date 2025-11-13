@@ -4,10 +4,24 @@
     bibs <- rmarkdown::metadata$bibliography
     set(render = TRUE, bibliography = bibs)
     bib_init()
-    terminate()
+    defer_knitr(bib_write())
   }
 }
 
-terminate <- function() {
-  withr::defer(bib_write(), envir = parent.frame(5L))
+defer <- function(expr, frame = parent.frame()) {
+  thunk <- as.call(list(function() expr))
+  do.call(on.exit, list(thunk, TRUE, FALSE), envir = frame)
+}
+
+defer_knitr <- function(expr) {
+  defer(expr, knitr_exit_frame())
+}
+
+knitr_exit_frame <- function() {
+  ns <- asNamespace("knitr")
+  for (frame in as.list(sys.frames())) {
+    if (identical(topenv(frame), ns)) {
+      return(frame)
+    }
+  }
 }

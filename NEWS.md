@@ -1,5 +1,7 @@
 # pakret (development version)
 
+* pakret now works when called after the package [conflicted](https://conflicted.r-lib.org) (#30).
+
 * Citing multiple packages is now significantly faster (#31).
 
 # pakret 0.2.2
