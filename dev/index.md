@@ -1,0 +1,128 @@
+# pakret
+
+## Overview
+
+pakret is a minimalistic R package citation tool to reference and cite R
+and R packages on the fly in R Markdown and Quarto.
+
+## Installation
+
+Install pakret from CRAN with:
+
+``` r
+install.packages("pakret")
+```
+
+Alternatively, you can install the development version of pakret from
+GitHub with:
+
+``` r
+# install.packages("pak")
+pak::pak("arnaudgallou/pakret")
+```
+
+## Usage
+
+Simply use
+[`pkrt()`](https://arnaudgallou.github.io/pakret/dev/reference/pkrt.md)
+whenever you want to cite R or an R package in your document:
+
+```` R
+---
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+library(pakret)
+```
+
+We used `r pkrt("foo")` to extract the data.
+
+Analyses were performed using `r pkrt("bar")`.
+
+## References
+````
+
+pakret handles everything for you.
+
+Here’s the markdown output produced by the document above:
+
+``` R
+We used the ‘foo’ package version 1.0.0 (Fastandfurius, Clausus, and
+Lastopus 2020) to extract the data.
+
+Analyses were performed using the ‘bar’ package version 0.2.0
+(Itisalapsus 2024).
+
+## References
+
+Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
+Alea Jacta Est*.
+
+Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+```
+
+It’s also possible to cite a collection of packages with
+[`pkrt_list()`](https://arnaudgallou.github.io/pakret/dev/reference/pkrt_list.md):
+
+```` R
+---
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+library(pakret)
+```
+
+I used the following packages: `r pkrt_list("foo", "bar")`.
+
+## References
+````
+
+``` R
+I used the following packages: ‘foo’ v. 1.0.0 (Fastandfurius, Clausus,
+and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus 2024).
+
+## References
+
+Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
+Alea Jacta Est*.
+
+Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+```
+
+Unhappy with the default templates? pakret lets you define your own:
+
+```` R
+---
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+library(pakret)
+pkrt_set(pkg = "the R package *:pkg* [v. :ver, :ref]")
+```
+
+We used `r pkrt("foo")` to analyse the data.
+
+## References
+````
+
+``` R
+We used the R package *foo* (v. 1.0.0, Fastandfurius, Clausus, and
+Lastopus 2020) to analyse the data.
+
+## References
+
+Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
+Alea Jacta Est*.
+```
+
+Note that by default pakret writes new references into the first `.bib`
+file specified in the bibliography list. You can change which `.bib`
+file to save references to using
+[`pkrt_set()`](https://arnaudgallou.github.io/pakret/dev/reference/pkrt_set.md).
