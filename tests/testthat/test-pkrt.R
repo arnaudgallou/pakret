@@ -100,6 +100,23 @@ test_that("pakret works with modified frame stacks (#30)", {
   expect_match(res, "@Manual\\{foo,")
 })
 
+test_that("pakret preserves the case of package and single-letter names", {
+  template <- dedent("
+    ---
+    bibliography: %s
+    ---
+    ```{r}
+    library(pakret)
+    pakret:::local_pkg('baz', Title = 'A Simple R Test With a Protected {B}')
+    ```
+    `r pkrt('baz')`
+  ")
+  dir <- local_files(template)
+  res <- read_local_file(dir, target = "bib")
+
+  expect_snapshot(cat(res))
+})
+
 # errors
 
 test_that("pkrt() gives meaningful error messages", {

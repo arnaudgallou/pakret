@@ -113,7 +113,7 @@ get_reference <- function(x) {
   if (length(ref) > 1L) {
     ref <- pick_reference(ref)
   }
-  insert_key(ref, key = x)
+  ref_normalize(ref, key = x)
 }
 
 pick_reference <- function(x) {
@@ -130,8 +130,21 @@ pick_bibtex <- function(x, type) {
   x[bibtex_is(x, type)]
 }
 
+ref_normalize <- function(ref, key) {
+  ref <- insert_key(ref, key)
+  protect_case(ref, key)
+}
+
 insert_key <- function(x, key) {
   sub("^@[^{]+\\{\\K[^,]*", key, x, perl = TRUE)
+}
+
+protect_case <- function(x, key) {
+  x <- strsplit(x, eol(), fixed = TRUE)[[1]]
+  title <- grep("title =", x, fixed = TRUE)
+  pattern <- sprintf("((?<!: |\\{)\\b[A-Z]\\b|%s(?!\\}))", key)
+  x[title] <- gsub(pattern, "{\\1}", x[[title]], perl = TRUE)
+  paste(x, collapse = eol())
 }
 
 cite <- function(x, template = class(x)) {
