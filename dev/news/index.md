@@ -2,6 +2,10 @@
 
 ## pakret (development version)
 
+- pakret now preserves the case of cited packages and single-letter
+  names (such as R and C) in reference titles
+  ([\#43](https://github.com/arnaudgallou/pakret/issues/43)).
+
 - pakret now works when called after the package
   [conflicted](https://conflicted.r-lib.org)
   ([\#30](https://github.com/arnaudgallou/pakret/issues/30)).
