@@ -140,11 +140,11 @@ insert_key <- function(x, key) {
 }
 
 protect_case <- function(x, key) {
-  x <- strsplit(x, eol(), fixed = TRUE)[[1]]
+  x <- strsplit(x, "\n", fixed = TRUE)[[1]]
   title <- grep("title =", x, fixed = TRUE)
   pattern <- sprintf("((?<!: |\\{)\\b[A-Z]\\b|%s(?!\\}))", key)
   x[title] <- gsub(pattern, "{\\1}", x[[title]], perl = TRUE)
-  paste(x, collapse = eol())
+  paste(x, collapse = "\n")
 }
 
 cite <- function(x, template = class(x)) {
