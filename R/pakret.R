@@ -54,12 +54,16 @@ bib_fetch <- function() {
   names(bibs) <- bib_name(bibs)
   file <- bibs[[get("bib")]]
   check_bib(file, arg = file)
-  get_path(file)
+  resolve_path(file)
 }
 
-get_path <- function(x) {
+resolve_path <- function(x) {
   dir <- knitr::opts_knit$get("output.dir")
-  file.path(dir, x)
+  path <- file.path(dir, x)
+  if (!file.exists(path)) {
+    file.create(path)
+  }
+  path
 }
 
 extract_keys <- function() {
