@@ -117,6 +117,23 @@ test_that("pakret preserves the case of package and single-letter names", {
   expect_snapshot(cat(res))
 })
 
+test_that("pakret creates bib files if needed", {
+  template <- dedent("
+    ---
+    bibliography: pkrt.bib
+    ---
+    ```{r}
+    library(pakret)
+    pakret:::load_foo()
+    ```
+    `r pkrt('foo')`
+  ")
+  dir <- local_files(template, bib = NULL)
+  res <- read_local_file(dir, target = "bib")
+
+  expect_match(res, "@Manual\\{foo,")
+})
+
 # errors
 
 test_that("pkrt() gives meaningful error messages", {
