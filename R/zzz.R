@@ -2,7 +2,7 @@
   do.call(set, .__settings__)
   if (is_rendering_context()) {
     bibs <- rmarkdown::metadata$bibliography
-    set(render = TRUE, bibliography = bibs)
+    set(render = TRUE, bibliography = bibs, eol = eol())
     bib_init()
     defer_knitr(bib_write())
   }
