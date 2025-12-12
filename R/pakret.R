@@ -88,45 +88,44 @@ bib_write <- function() {
 }
 
 make_lines <- function() {
-  eol <- eol()
   out <- collapse(get("refs"))
   if (get("append")) {
-    out <- paste0(eol, out)
+    out <- paste0(get("eol"), out)
   }
-  paste0(out, eol)
+  paste0(out, get("eol"))
 }
 
-add_ref <- function(x) {
+ref_add <- function(x) {
   if (is_referenced(x)) {
     return()
   }
   set(
-    refs = get_reference(x),
+    refs = ref_get(x),
     keys = x,
     .add = TRUE
   )
 }
 
-get_reference <- function(x) {
+ref_get <- function(x) {
   ref <- utils::citation(x)
   ref <- format(ref, style = "bibtex")
   if (length(ref) > 1L) {
-    ref <- pick_reference(ref)
+    ref <- ref_pick(ref)
   }
   ref_normalize(ref, key = x)
 }
 
-pick_reference <- function(x) {
+ref_pick <- function(x) {
   for (type in c("manual", "book")) {
     if (has_bibtex(x, type)) {
-      x <- pick_bibtex(x, type)
+      x <- bibtex_pick(x, type)
       break
     }
   }
   x[[1]]
 }
 
-pick_bibtex <- function(x, type) {
+bibtex_pick <- function(x, type) {
   x[bibtex_is(x, type)]
 }
 
@@ -150,7 +149,7 @@ protect_case <- function(x, key) {
 cite <- function(x, template = class(x)) {
   check_pkg(x)
   if (is_rendering()) {
-    add_ref(x)
+    ref_add(x)
   }
   cast(template, pkg_details(x))
 }

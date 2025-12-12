@@ -24,7 +24,7 @@ test_that("writing bib entries in the desired file works", {
   load_bar()
   dir <- local_files(template, bib = local_set(
     # the pre-written ref is to ensure that pkrt_set() resets bib metadata (#22)
-    lines = get_reference("bar"),
+    lines = ref_get("bar"),
     n = 2L
   ))
 

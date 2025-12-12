@@ -12,7 +12,7 @@ test_that("bib entries are properly appended to bib files", {
 
   load_bar()
   template <- make_template(lines = "`r pkrt('foo')`")
-  dir <- local_files(template, bib = local_set(lines = get_reference("bar")))
+  dir <- local_files(template, bib = local_set(lines = ref_get("bar")))
   res <- read_local_file(dir, target = "bib")
   expect_snapshot(cat(res))
 })
@@ -49,7 +49,7 @@ test_that("citing the same package again doesn't add a new bib entry", {
 
 test_that("citing no packages doesn't modify bib files", {
   load_foo()
-  citation <- get_reference("foo")
+  citation <- ref_get("foo")
   template <- make_template(lines = "")
   dir <- local_files(template, bib = local_set(lines = citation))
   res <- read_local_file(dir, target = "bib")
