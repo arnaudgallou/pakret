@@ -5,9 +5,9 @@ Authors@R:
     person("Arnaud", "Gallou", , "arangacas@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-1002-4247"))
 Description: References and cites 'R' and 'R' packages on the fly in 'R
-    Markdown' and 'Quarto'. 'pakret' provides a minimalistic API that
-    generates preformatted citations of 'R' and 'R' packages, and adds
-    their reference to a '.bib' file directly from within your document.
+    Markdown' and 'Quarto'. 'pakret' provides a minimalist API that
+    generates preformatted citations for 'R' and 'R' packages, and adds
+    their references to a '.bib' file directly from within your document.
 License: GPL (>= 3)
 URL: https://arnaudgallou.github.io/pakret/,
     https://github.com/arnaudgallou/pakret

@@ -6,7 +6,7 @@
 \alias{pakret-package}
 \title{pakret: Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'}
 \description{
-References and cites 'R' and 'R' packages on the fly in 'R Markdown' and 'Quarto'. 'pakret' provides a minimalistic API that generates preformatted citations of 'R' and 'R' packages, and adds their reference to a '.bib' file directly from within your document.
+References and cites 'R' and 'R' packages on the fly in 'R Markdown' and 'Quarto'. 'pakret' provides a minimalist API that generates preformatted citations for 'R' and 'R' packages, and adds their references to a '.bib' file directly from within your document.
 }
 \seealso{
 Useful links:

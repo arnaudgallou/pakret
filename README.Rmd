@@ -34,7 +34,7 @@ make_template <- function(lines, to_render = TRUE) {
 
 ## Overview
 
-pakret is a minimalistic R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.
+pakret is a minimalist R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.
 
 ## Installation
 
@@ -89,7 +89,7 @@ make_template(template) |>
   cat()
 ```
 
-It's also possible to cite a collection of packages with `pkrt_list()`:
+You can also cite a collection of packages with `pkrt_list()`:
 
 ````{r, include = FALSE}
 template <- pakret:::dedent('
