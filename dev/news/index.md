@@ -2,6 +2,10 @@
 
 ## pakret (development version)
 
+- pakret now creates the `.bib` files used to write package references
+  if they don’t exist
+  ([\#48](https://github.com/arnaudgallou/pakret/issues/48)).
+
 - pakret now preserves the case of cited packages and single-letter
   names (such as R and C) in reference titles
   ([\#43](https://github.com/arnaudgallou/pakret/issues/43)).
