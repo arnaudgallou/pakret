@@ -1,6 +1,6 @@
 Package: pakret
 Title: Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'
-Version: 0.3.0
+Version: 0.3.0.9000
 Authors@R:
     person("Arnaud", "Gallou", , "arangacas@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-1002-4247"))

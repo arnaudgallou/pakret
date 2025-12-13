@@ -1,3 +1,5 @@
+# pakret (development version)
+
 # pakret 0.3.0
 
 * pakret now creates the `.bib` files used to write package references if they
