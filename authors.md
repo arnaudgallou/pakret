@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/arnaudgallou/pakret/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/arnaudgallou/pakret/blob/v0.3.0/DESCRIPTION)
 
 Gallou A (2025). *pakret: Cite 'R' Packages on the Fly in 'R Markdown'
 and 'Quarto'*. R package version 0.3.0,
