@@ -14,6 +14,11 @@
   [conflicted](https://conflicted.r-lib.org)
   ([\#30](https://github.com/arnaudgallou/pakret/issues/30)).
 
+- The `:ver` placeholder in citation templates is now optional, mainly
+  for pakret use in non-technical documents where package versions are
+  unnecessary
+  ([\#40](https://github.com/arnaudgallou/pakret/issues/40)).
+
 - Citing multiple packages is now significantly faster
   ([\#31](https://github.com/arnaudgallou/pakret/issues/31)).
 
@@ -48,8 +53,8 @@ CRAN release: 2024-10-03
 - Added `book` as a second BibTeX type that should be used in priority
   when getting the reference of a package (previously, the priority was
   given to `manual` entries only). This allows for a slightly better
-  handling of multi-reference packages by using a more general reference
-  when there’s a `book` but no `manual` BibTeX entry available
+  handling of multi- reference packages by using a more general
+  reference when there’s a `book` but no `manual` BibTeX entry available
   ([\#15](https://github.com/arnaudgallou/pakret/issues/15)).
 
 - `as.data.frame.pkrt_list()` now arranges packages in alphabetical
