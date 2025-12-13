@@ -16,7 +16,8 @@ pkrt(pkg)
 
 - pkg:
 
-  Name of the package to cite.
+  Name of the package to cite. You can use `"R"` as an alias for the
+  base package to cite R.
 
 ## Value
 

@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Cite R Packages on the Fly in R Markdown and Quarto">
-<meta name="description" content="References and cites R and R packages on the fly in R Markdown and Quarto. pakret provides a minimalistic API that generates preformatted citations of R and R packages, and adds their reference to a .bib file directly from within your document.">
-<meta property="og:description" content="References and cites R and R packages on the fly in R Markdown and Quarto. pakret provides a minimalistic API that generates preformatted citations of R and R packages, and adds their reference to a .bib file directly from within your document.">
+<meta name="description" content="References and cites R and R packages on the fly in R Markdown and Quarto. pakret provides a minimalist API that generates preformatted citations for R and R packages, and adds their references to a .bib file directly from within your document.">
+<meta property="og:description" content="References and cites R and R packages on the fly in R Markdown and Quarto. pakret provides a minimalist API that generates preformatted citations for R and R packages, and adds their references to a .bib file directly from within your document.">
 <meta name="robots" content="noindex">
 </head>
 <body>
@@ -55,7 +55,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>pakret is a minimalistic R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.</p>
+<p>pakret is a minimalist R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -96,11 +96,12 @@
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="do">## References</span></span>
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span> <span class="sc">*</span>Foo<span class="sc">:</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="sc">*</span><span class="er">&lt;</span>span class<span class="ot">=</span><span class="st">"nocase"</span><span class="sc">&gt;</span>foo<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span><span class="er">:</span> Alea Jacta Est<span class="sc">*</span>.</span>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span>Bar<span class="sc">:</span> Tempus Edax Rerum<span class="sc">*</span>.</span></code></pre></div>
-<p>It’s also possible to cite a collection of packages with <code><a href="reference/pkrt_list.html">pkrt_list()</a></code>:</p>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span><span class="er">&lt;</span>span class<span class="ot">=</span><span class="st">"nocase"</span><span class="sc">&gt;</span>bar<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span><span class="er">:</span> Tempus Edax</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>Rerum<span class="sc">*</span>.</span></code></pre></div>
+<p>You can also cite a collection of packages with <code><a href="reference/pkrt_list.html">pkrt_list()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>bibliography<span class="sc">:</span> references.bib</span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="sc">---</span></span>
@@ -119,10 +120,11 @@
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="do">## References</span></span>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span> <span class="sc">*</span>Foo<span class="sc">:</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="sc">*</span><span class="er">&lt;</span>span class<span class="ot">=</span><span class="st">"nocase"</span><span class="sc">&gt;</span>foo<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span><span class="er">:</span> Alea Jacta Est<span class="sc">*</span>.</span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span>Bar<span class="sc">:</span> Tempus Edax Rerum<span class="sc">*</span>.</span></code></pre></div>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>Itisalapsus, Julius. <span class="fl">2024.</span> <span class="sc">*</span><span class="er">&lt;</span>span class<span class="ot">=</span><span class="st">"nocase"</span><span class="sc">&gt;</span>bar<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span><span class="er">:</span> Tempus Edax</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>Rerum<span class="sc">*</span>.</span></code></pre></div>
 <p>Unhappy with the default templates? pakret lets you define your own:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>bibliography<span class="sc">:</span> references.bib</span>
@@ -144,8 +146,8 @@
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="do">## References</span></span>
 <span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span> <span class="sc">*</span>Foo<span class="sc">:</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>Alea Jacta Est<span class="sc">*</span>.</span></code></pre></div>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. <span class="fl">2020.</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="sc">*</span><span class="er">&lt;</span>span class<span class="ot">=</span><span class="st">"nocase"</span><span class="sc">&gt;</span>foo<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span><span class="er">:</span> Alea Jacta Est<span class="sc">*</span>.</span></code></pre></div>
 <p>Note that by default pakret writes new references into the first <code>.bib</code> file specified in the bibliography list. You can change which <code>.bib</code> file to save references to using <code><a href="reference/pkrt_set.html">pkrt_set()</a></code>.</p>
 </div>
 </div>
@@ -184,7 +186,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://CRAN.R-project.org/package=pakret" class="external-link"><img src="https://www.r-pkg.org/badges/version/pakret" alt="CRAN status"></a></li>
 <li><a href="https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>

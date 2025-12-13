@@ -2,7 +2,7 @@
 
 ## Overview
 
-pakret is a minimalistic R package citation tool to reference and cite R
+pakret is a minimalist R package citation tool to reference and cite R
 and R packages on the fly in R Markdown and Quarto.
 
 ## Installation
@@ -57,13 +57,14 @@ Analyses were performed using the ‘bar’ package version 0.2.0
 
 ## References
 
-Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
-Alea Jacta Est*.
+Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
+*<span class="nocase">foo</span>: Alea Jacta Est*.
 
-Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+Itisalapsus, Julius. 2024. *<span class="nocase">bar</span>: Tempus Edax
+Rerum*.
 ```
 
-It’s also possible to cite a collection of packages with
+You can also cite a collection of packages with
 [`pkrt_list()`](https://arnaudgallou.github.io/pakret/dev/reference/pkrt_list.md):
 
 ```` R
@@ -87,10 +88,11 @@ and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus 2024).
 
 ## References
 
-Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
-Alea Jacta Est*.
+Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
+*<span class="nocase">foo</span>: Alea Jacta Est*.
 
-Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+Itisalapsus, Julius. 2024. *<span class="nocase">bar</span>: Tempus Edax
+Rerum*.
 ```
 
 Unhappy with the default templates? pakret lets you define your own:
@@ -118,8 +120,8 @@ Lastopus 2020) to analyse the data.
 
 ## References
 
-Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
-Alea Jacta Est*.
+Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
+*<span class="nocase">foo</span>: Alea Jacta Est*.
 ```
 
 Note that by default pakret writes new references into the first `.bib`
