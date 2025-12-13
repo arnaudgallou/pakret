@@ -4,7 +4,8 @@
 #'   in which case `pkrt()` automatically references the cited package in the
 #'   first (by default) `.bib` file specified in the YAML header if no
 #'   references of the package already exist.
-#' @param pkg Name of the package to cite.
+#' @param pkg Name of the package to cite. You can use `"R"` as an alias for the
+#'   base package to cite R.
 #' @returns A character string.
 #' @examples
 #' pkrt("pakret")

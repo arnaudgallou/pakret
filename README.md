@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/pakret)](https://CRAN.R-project.org/package=pakret)
 [![R-CMD-check](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml)
@@ -14,7 +14,7 @@ status](https://www.r-pkg.org/badges/version/pakret)](https://CRAN.R-project.org
 
 ## Overview
 
-pakret is a minimalistic R package citation tool to reference and cite R
+pakret is a minimalist R package citation tool to reference and cite R
 and R packages on the fly in R Markdown and Quarto.
 
 ## Installation
@@ -65,12 +65,13 @@ Here’s the markdown output produced by the document above:
 
     ## References
 
-    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
-    Alea Jacta Est*.
+    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
+    *<span class="nocase">foo</span>: Alea Jacta Est*.
 
-    Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+    Itisalapsus, Julius. 2024. *<span class="nocase">bar</span>: Tempus Edax
+    Rerum*.
 
-It’s also possible to cite a collection of packages with `pkrt_list()`:
+You can also cite a collection of packages with `pkrt_list()`:
 
     ---
     bibliography: references.bib
@@ -92,10 +93,11 @@ It’s also possible to cite a collection of packages with `pkrt_list()`:
 
     ## References
 
-    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
-    Alea Jacta Est*.
+    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
+    *<span class="nocase">foo</span>: Alea Jacta Est*.
 
-    Itisalapsus, Julius. 2024. *Bar: Tempus Edax Rerum*.
+    Itisalapsus, Julius. 2024. *<span class="nocase">bar</span>: Tempus Edax
+    Rerum*.
 
 Unhappy with the default templates? pakret lets you define your own:
 
@@ -121,8 +123,8 @@ Unhappy with the default templates? pakret lets you define your own:
 
     ## References
 
-    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020. *Foo:
-    Alea Jacta Est*.
+    Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
+    *<span class="nocase">foo</span>: Alea Jacta Est*.
 
 Note that by default pakret writes new references into the first `.bib`
 file specified in the bibliography list. You can change which `.bib`

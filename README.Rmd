@@ -27,14 +27,14 @@ make_template <- function(lines, to_render = TRUE) {
 # pakret
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN status](https://www.r-pkg.org/badges/version/pakret)](https://CRAN.R-project.org/package=pakret)
 [![R-CMD-check](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/arnaudgallou/pakret/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Overview
 
-pakret is a minimalistic R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.
+pakret is a minimalist R package citation tool to reference and cite R and R packages on the fly in R Markdown and Quarto.
 
 ## Installation
 
@@ -89,7 +89,7 @@ make_template(template) |>
   cat()
 ```
 
-It's also possible to cite a collection of packages with `pkrt_list()`:
+You can also cite a collection of packages with `pkrt_list()`:
 
 ````{r, include = FALSE}
 template <- pakret:::dedent('

@@ -7,7 +7,8 @@
 pkrt(pkg)
 }
 \arguments{
-\item{pkg}{Name of the package to cite.}
+\item{pkg}{Name of the package to cite. You can use \code{"R"} as an alias for the
+base package to cite R.}
 }
 \value{
 A character string.
