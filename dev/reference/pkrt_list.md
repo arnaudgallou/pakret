@@ -37,12 +37,12 @@ citations <- pkrt_list("pakret", "readr", "knitr")
 
 # You can then turn the citations into a character string
 paste(citations, collapse = ", ")
-#> [1] "'pakret' v. 0.3.0.9000 [@pakret], 'readr' v. 2.1.6 [@readr], 'knitr' v. 1.50 [@knitr]"
+#> [1] "'pakret' v. 0.3.0.9000 [@pakret], 'readr' v. 2.1.6 [@readr], 'knitr' v. 1.51 [@knitr]"
 
 # Or a data frame
 as.data.frame(citations)
 #>   Package    Version Reference
-#> 1   knitr       1.50    @knitr
+#> 1   knitr       1.51    @knitr
 #> 2  pakret 0.3.0.9000   @pakret
 #> 3   readr      2.1.6    @readr
 ```
