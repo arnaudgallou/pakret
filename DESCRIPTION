@@ -15,7 +15,7 @@ BugReports: https://github.com/arnaudgallou/pakret/issues
 Depends:
     R (>= 3.6.0)
 Imports:
-    knitr,
+    knitr (>= 1.51),
     readr (>= 1.0.0),
     rmarkdown
 Suggests:
