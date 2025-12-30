@@ -7,8 +7,3 @@
     bib_init()
   }
 }
-
-defer <- function(expr, frame = parent.frame()) {
-  thunk <- as.call(list(function() expr))
-  do.call(on.exit, list(thunk, TRUE, FALSE), envir = frame)
-}

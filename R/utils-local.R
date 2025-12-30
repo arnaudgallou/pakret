@@ -114,7 +114,7 @@ bib_field <- function(name) {
 }
 
 load_pkg <- function(path, env) {
-  defer(pkgload::unload(basename(path), quiet = TRUE), frame = env)
+  withr::defer(pkgload::unload(basename(path), quiet = TRUE), envir = env)
   pkgload::load_all(path, export_all = FALSE, quiet = TRUE)
 }
 
