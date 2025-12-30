@@ -1,5 +1,5 @@
 local_settings <- function(..., env = parent.frame()) {
-  defer(reset(...names()), frame = env)
+  withr::defer(reset(...names()), envir = env)
   pkrt_set(...)
 }
 

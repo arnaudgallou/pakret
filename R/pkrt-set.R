@@ -55,7 +55,7 @@ reset <- function(x) {
 update <- function(x) {
   if (is_updating_bib(x)) {
     bib_write()
-    defer(bib_set())
+    on.exit(bib_set(), add = TRUE)
   }
   do.call(set, as.list(x))
 }
