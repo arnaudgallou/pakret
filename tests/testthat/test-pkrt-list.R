@@ -29,6 +29,24 @@ test_that("pkrt_list() removes duplicate and base packages", {
   expect_equal(names(citations), "foo")
 })
 
+test_that("pkrt_list() correctly enumerates packages in inline chunks", {
+  template <- dedent("
+    ---
+    bibliography: %s
+    ---
+    ```{r}
+    #| echo: false
+    library(pakret)
+    pakret:::load_foo()
+    pakret:::load_bar()
+    ```
+    `r pkrt_list('foo', 'bar')`
+  ")
+  dir <- local_files(template)
+  res <- read_local_file(dir)
+  expect_snapshot(cat(res))
+})
+
 # errors
 
 test_that("pkrt_list() gives meaningful error messages", {
