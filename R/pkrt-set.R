@@ -36,17 +36,9 @@ update_setting <- function(key, value) {
   if (is.null(value)) {
     return(reset(key))
   }
-  names(value) <- key
-  class(value) <- if (is_template(key)) "template" else key
-  set_option(value)
+  setting <- as_setting(value, key)
+  set_option(setting)
 }
-
-get_template_keys <- function() {
-  x <- .__settings__
-  names(x)[has_placeholder(x)]
-}
-
-.template_keys <- get_template_keys()
 
 reset <- function(x) {
   update(.__settings__[x])
@@ -58,6 +50,10 @@ update <- function(x) {
     on.exit(bib_set(), add = TRUE)
   }
   do.call(set, as.list(x))
+}
+
+as_setting <- function(x, name) {
+  structure(x, names = name, class = class(.__settings__[[name]]))
 }
 
 set_option <- function(x) {
@@ -91,7 +87,7 @@ set_option.bib <- function(x) {
 
 make_pkrt_set_details <- function() {
   out <- lapply(names(.details), function(key, value = .details[[key]]) {
-    default <- .__settings__[[key]]
+    default <- unclass(.__settings__[[key]])
     if (!is.list(value)) {
       value <- as.list(value)
     }

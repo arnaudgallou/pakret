@@ -30,11 +30,6 @@ as_r <- function() {
   add_class("base", cls = "r")
 }
 
-add_class <- function(x, cls) {
-  class(x) <- cls
-  x
-}
-
 bib_init <- function() {
   check_bibliography()
   bib_set()

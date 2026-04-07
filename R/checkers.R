@@ -39,10 +39,6 @@ is_blank <- function(x) {
   grepl("^\\s*$", x)
 }
 
-is_template <- function(x) {
-  x %in% .template_keys
-}
-
 is_named <- function(x) {
   nms <- names(x)
   if (is.null(nms) || any(nms == "")) {
