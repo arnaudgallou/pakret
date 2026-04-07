@@ -1,8 +1,13 @@
+add_class <- function(x, cls) {
+  class(x) <- cls
+  x
+}
+
 .__settings__ <- list(
-  bib = 1L,
-  pkg = "the ':pkg' package version :ver [:ref]",
-  pkg_list = "':pkg' v. :ver [:ref]",
-  r = "R version :ver [:ref]"
+  bib = add_class(1L, "bib"),
+  pkg = add_class("the ':pkg' package version :ver [:ref]", "template"),
+  pkg_list = add_class("':pkg' v. :ver [:ref]", "template"),
+  r = add_class("R version :ver [:ref]", "template")
 )
 
 .__pakret__ <- new.env(parent = emptyenv())
