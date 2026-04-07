@@ -10,14 +10,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/arnaudgallou/pakret/blob/main/DESCRIPTION)
 
-Gallou A (2025). *pakret: Cite 'R' Packages on the Fly in 'R Markdown'
+Gallou A (2026). *pakret: Cite 'R' Packages on the Fly in 'R Markdown'
 and 'Quarto'*. R package version 0.3.0.9000,
 <https://arnaudgallou.github.io/pakret/>.
 
     @Manual{,
       title = {pakret: Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'},
       author = {Arnaud Gallou},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.3.0.9000},
       url = {https://arnaudgallou.github.io/pakret/},
     }
