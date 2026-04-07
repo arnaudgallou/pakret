@@ -65,6 +65,11 @@ set_option.template <- function(x) {
   update(x)
 }
 
+set_option.str <- function(x) {
+  check_string(x, arg = names(x))
+  update(x)
+}
+
 set_option.bib <- function(x) {
   if (!is_rendering()) {
     return(invisible())
@@ -106,5 +111,7 @@ make_pkrt_set_details <- function() {
   ),
   pkg = "Template used to cite a package.",
   pkg_list = "Template used in `pkrt_list()`.",
-  r = "Template used to cite R."
+  r = "Template used to cite R.",
+  sep = "Separator used between packages in `pkrt_list()`",
+  sep_last = "Separator used between the last two packages in `pkrt_list()`"
 )

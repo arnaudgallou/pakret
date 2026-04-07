@@ -33,6 +33,12 @@ Template used in \code{pkrt_list()}.
 \item \strong{r}\if{html}{\out{<br>}}
 \verb{<character> = "R version :ver [:ref]"}\if{html}{\out{<br>}}
 Template used to cite R.
+\item \strong{sep}\if{html}{\out{<br>}}
+\verb{<character> = ", "}\if{html}{\out{<br>}}
+Separator used between packages in \code{pkrt_list()}
+\item \strong{sep_last}\if{html}{\out{<br>}}
+\verb{<character> = ", and "}\if{html}{\out{<br>}}
+Separator used between the last two packages in \code{pkrt_list()}
 }
 
 New settings only apply to citations that come after \code{pkrt_set()}. This means

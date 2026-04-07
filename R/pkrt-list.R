@@ -76,3 +76,20 @@ unstructure <- function(x) {
   attributes(x) <- NULL
   x
 }
+
+#' @export
+knit_print.pkrt_list <- function(x, ..., inline = FALSE) {
+  if (inline) {
+    return(enumerate(x))
+  }
+  NextMethod()
+}
+
+enumerate <- function(x) {
+  n = length(x)
+  if (n == 1L) {
+    return(x)
+  }
+  lhs <- paste(x[-n], collapse = get("sep"))
+  paste0(lhs, get("sep_last"), x[n])
+}
