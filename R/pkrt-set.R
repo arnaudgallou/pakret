@@ -112,6 +112,6 @@ make_pkrt_set_details <- function() {
   pkg = "Template used to cite a package.",
   pkg_list = "Template used in `pkrt_list()`.",
   r = "Template used to cite R.",
-  sep = "Separator used between packages in `pkrt_list()`",
-  sep_last = "Separator used between the last two packages in `pkrt_list()`"
+  sep = "Separator used between packages in inline chunks.",
+  sep_last = "Separator used between the last two packages in inline chunks."
 )

@@ -16,6 +16,7 @@
 #' citations <- pkrt_list("pakret", "readr", "knitr")
 #'
 #' # You can then turn the citations into a character string
+#' # Note that this is done automatically in inline chunks
 #' paste(citations, collapse = ", ")
 #'
 #' # Or a data frame

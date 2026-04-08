@@ -35,10 +35,10 @@ Template used in \code{pkrt_list()}.
 Template used to cite R.
 \item \strong{sep}\if{html}{\out{<br>}}
 \verb{<character> = ", "}\if{html}{\out{<br>}}
-Separator used between packages in \code{pkrt_list()}
+Separator used between packages in inline chunks.
 \item \strong{sep_last}\if{html}{\out{<br>}}
 \verb{<character> = ", and "}\if{html}{\out{<br>}}
-Separator used between the last two packages in \code{pkrt_list()}
+Separator used between the last two packages in inline chunks.
 }
 
 New settings only apply to citations that come after \code{pkrt_set()}. This means
