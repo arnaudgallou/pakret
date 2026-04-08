@@ -134,6 +134,11 @@ test_that("pakret creates bib files if needed", {
   expect_match(res, "@Manual\\{foo,")
 })
 
+test_that("pkrt() returns an object of class `AsIs` (#51)", {
+  load_foo()
+  expect_s3_class(pkrt("foo"), "AsIs")
+})
+
 # errors
 
 test_that("pkrt() gives meaningful error messages", {
