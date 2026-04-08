@@ -2,6 +2,11 @@
 
 ## pakret (development version)
 
+- [`pkrt_set()`](https://arnaudgallou.github.io/pakret/dev/reference/pkrt_set.md)
+  gains two new parameters, `sep` and `sep_last`, to control separators
+  between packages when citing a list of packages in inline chunks
+  ([\#53](https://github.com/arnaudgallou/pakret/issues/53)).
+
 ## pakret 0.3.0
 
 CRAN release: 2025-12-13

@@ -42,6 +42,14 @@ Valid parameters are:
   `<character> = "R version :ver [:ref]"`  
   Template used to cite R.
 
+- **sep**  
+  `<character> = ", "`  
+  Separator used between packages in inline chunks.
+
+- **sep_last**  
+  `<character> = ", and "`  
+  Separator used between the last two packages in inline chunks.
+
 New settings only apply to citations that come after `pkrt_set()`. This
 means you can redefine the same settings multiple times in the same
 document to alter pakret's behavior for a few specific citations only.

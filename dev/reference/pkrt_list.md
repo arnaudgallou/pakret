@@ -36,6 +36,7 @@ all the packages used in a project or directory.
 citations <- pkrt_list("pakret", "readr", "knitr")
 
 # You can then turn the citations into a character string
+# Note that this is done automatically in inline chunks
 paste(citations, collapse = ", ")
 #> [1] "'pakret' v. 0.3.0.9000 [@pakret], 'readr' v. 2.2.0 [@readr], 'knitr' v. 1.51 [@knitr]"
 
