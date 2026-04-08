@@ -89,7 +89,7 @@ You can also cite a collection of packages with `pkrt_list()`:
 <!-- separator -->
 
     I used the following packages: ‘foo’ v. 1.0.0 (Fastandfurius, Clausus,
-    and Lastopus 2020), ‘bar’ v. 0.2.0 (Itisalapsus 2024).
+    and Lastopus 2020), and ‘bar’ v. 0.2.0 (Itisalapsus 2024).
 
     ## References
 
