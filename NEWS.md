@@ -1,5 +1,9 @@
 # pakret (development version)
 
+* `pkrt_set()` gains two new parameters, `sep` and `sep_last`, to control
+separators between packages when citing a list of packages in inline chunks
+(#53).
+
 # pakret 0.3.0
 
 * pakret now creates the `.bib` files used to write package references if they

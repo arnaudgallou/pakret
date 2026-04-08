@@ -7,7 +7,9 @@ add_class <- function(x, cls) {
   bib = add_class(1L, "bib"),
   pkg = add_class("the ':pkg' package version :ver [:ref]", "template"),
   pkg_list = add_class("':pkg' v. :ver [:ref]", "template"),
-  r = add_class("R version :ver [:ref]", "template")
+  r = add_class("R version :ver [:ref]", "template"),
+  sep = add_class(", ", "str"),
+  sep_last = add_class(", and ", "str")
 )
 
 .__pakret__ <- new.env(parent = emptyenv())

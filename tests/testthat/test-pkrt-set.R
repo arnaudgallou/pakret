@@ -58,6 +58,11 @@ test_that("writing bib entries in multiple file works", {
   expect_length(extract(res, "(?m)^@"), 1L)
 })
 
+test_that("updating `str` settings works", {
+  local_settings(sep_last = " or ")
+  expect_equal(get("sep_last"), " or ")
+})
+
 # errors
 
 test_that("pkrt_set() gives meaningful error messages", {
