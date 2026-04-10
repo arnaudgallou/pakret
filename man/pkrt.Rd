@@ -11,7 +11,7 @@ pkrt(pkg)
 base package to cite R.}
 }
 \value{
-A character string.
+A character string with S3 class \code{AsIs}.
 }
 \description{
 Creates a preformatted citation of R or an R package. This
