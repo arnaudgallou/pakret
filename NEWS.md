@@ -1,5 +1,7 @@
 # pakret (development version)
 
+* pakret now supports Quarto's inline syntax (#54).
+
 * `pkrt_set()` gains two new parameters, `sep` and `sep_last`, to control
 separators between packages when citing a list of packages in inline chunks
 (#53).

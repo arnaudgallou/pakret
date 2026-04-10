@@ -1,17 +1,21 @@
 test_that("custom templates work", {
   load_foo()
   local_settings(pkg = ":ref :ver :pkg")
-  expect_equal(pkrt("foo"), "@foo 1.0.0 foo")
+  expect_equal(pkrt("foo"), "@foo 1.0.0 foo", ignore_attr = "class")
 
   local_settings(pkg = ":pkg :ref")
-  expect_equal(pkrt("foo"), "foo @foo")
+  expect_equal(pkrt("foo"), "foo @foo", ignore_attr = "class")
 })
 
 test_that("`NULL` resets settings to their default value", {
   load_foo()
   pkrt_set(pkg = ":ref :ver :pkg")
   pkrt_set(pkg = NULL)
-  expect_equal(pkrt("foo"), "the 'foo' package version 1.0.0 [@foo]")
+  expect_equal(
+    pkrt("foo"),
+    "the 'foo' package version 1.0.0 [@foo]",
+    ignore_attr = "class"
+  )
 })
 
 test_that("writing bib entries in the desired file works", {

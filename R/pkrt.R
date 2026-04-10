@@ -6,7 +6,7 @@
 #'   references of the package already exist.
 #' @param pkg Name of the package to cite. You can use `"R"` as an alias for the
 #'   base package to cite R.
-#' @returns A character string.
+#' @returns A character string with S3 class `AsIs`.
 #' @examples
 #' pkrt("pakret")
 #'
