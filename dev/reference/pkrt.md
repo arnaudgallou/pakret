@@ -21,7 +21,7 @@ pkrt(pkg)
 
 ## Value
 
-A character string.
+A character string with S3 class `AsIs`.
 
 ## Examples
 

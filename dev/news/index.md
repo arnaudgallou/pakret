@@ -2,6 +2,9 @@
 
 ## pakret (development version)
 
+- pakret now supports Quarto’s inline syntax
+  ([\#54](https://github.com/arnaudgallou/pakret/issues/54)).
+
 - [`pkrt_set()`](https://arnaudgallou.github.io/pakret/dev/reference/pkrt_set.md)
   gains two new parameters, `sep` and `sep_last`, to control separators
   between packages when citing a list of packages in inline chunks
