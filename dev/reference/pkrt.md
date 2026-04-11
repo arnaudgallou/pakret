@@ -1,10 +1,10 @@
 # Cite R or an R package
 
-Creates a preformatted citation of R or an R package. This function
-should normally only be used in an R Markdown or Quarto document, in
-which case `pkrt()` automatically references the cited package in the
-first (by default) `.bib` file specified in the YAML header if no
-references of the package already exist.
+Creates a preformatted citation for R or an R package. This function is
+normally used within an R Markdown or Quarto document, where `pkrt()`
+automatically references the cited package to the first (by default)
+`.bib` file specified in the YAML header if no reference for the package
+already exists.
 
 ## Usage
 

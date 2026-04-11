@@ -1,8 +1,8 @@
 # Configure pakret's settings
 
-This function allows you to configure pakret's settings, e.g. to
-customize citation templates or control which `.bib` file to save
-references to.
+This function lets you configure pakret's settings, for example, to
+customize citation templates or specify which `.bib` file should store
+the references.
 
 ## Usage
 
@@ -59,9 +59,9 @@ Use `NULL` to reset a parameter to its default value.
 ## Examples
 
 ``` r
-pkrt_set(pkg = ":pkg (v. :ver) :ref")
+pkrt_set(pkg = "*:pkg* :ver :ref")
 pkrt("pakret")
-#> [1] "pakret (v. 0.3.0.9000) @pakret"
+#> [1] "*pakret* 0.3.0.9000 @pakret"
 
 # `NULL` resets parameters to their default value
 pkrt_set(pkg = NULL)

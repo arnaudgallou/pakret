@@ -5,6 +5,16 @@
 pakret is a minimalist R package citation tool to reference and cite R
 and R packages on the fly in R Markdown and Quarto.
 
+## Key features
+
+- Allows independent, inline citations of a single package or a list of
+  packages.
+- Supports full customization of package citations.
+- Can cite packages in tabular format.
+- Appends new references to existing `.bib` files.
+- Uses a single reference per package, prioritizing `manual` and `book`
+  entries.
+
 ## Installation
 
 Install pakret from CRAN with:
