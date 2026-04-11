@@ -1,7 +1,7 @@
 #' @title Configure pakret's settings
-#' @description This function allows you to configure pakret's settings, e.g. to
-#'   customize citation templates or control which `.bib` file to save
-#'   references to.
+#' @description This function lets you configure pakret's settings, for example,
+#'   to customize citation templates or specify which `.bib` file should store
+#'   the references.
 #' @param ... Key-value pairs, separated by commas, of parameters to set. See
 #'   details.
 #' @details
@@ -15,7 +15,7 @@
 #' Use `NULL` to reset a parameter to its default value.
 #' @returns This function is called for its side-effect. It returns no value.
 #' @examples
-#' pkrt_set(pkg = ":pkg (v. :ver) :ref")
+#' pkrt_set(pkg = "*:pkg* :ver :ref")
 #' pkrt("pakret")
 #'
 #' # `NULL` resets parameters to their default value

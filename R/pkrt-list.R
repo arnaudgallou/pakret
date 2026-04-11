@@ -1,10 +1,9 @@
 #' @title Cite a collection of R packages
-#' @description Creates a list of package citations that can be turned into a
-#'   character string or data frame. This function should normally only be used
-#'   in an R Markdown or Quarto document, in which case `pkrt_list()`
-#'   automatically references the cited packages in the first (by default)
-#'   `.bib` file specified in the YAML header if no references of the packages
-#'   already exist.
+#' @description Creates a list of package citations that can be converted into a
+#'   character string or data frame. This function is normally used within an R
+#'   Markdown or Quarto document, where `pkrt_list()` automatically references
+#'   the cited packages in the first (by default) `.bib` file specified in the
+#'   YAML header if no reference for the packages already exists.
 #' @param ... Character vectors, separated by commas, of packages to cite.
 #' @details
 #' This function automatically discards duplicate and base packages. You can use
