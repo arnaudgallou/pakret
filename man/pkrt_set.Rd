@@ -14,9 +14,9 @@ details.}
 This function is called for its side-effect. It returns no value.
 }
 \description{
-This function allows you to configure pakret's settings, e.g. to
-customize citation templates or control which \code{.bib} file to save
-references to.
+This function lets you configure pakret's settings, for example,
+to customize citation templates or specify which \code{.bib} file should store
+the references.
 }
 \details{
 Valid parameters are:
@@ -48,7 +48,7 @@ alter pakret's behavior for a few specific citations only.
 Use \code{NULL} to reset a parameter to its default value.
 }
 \examples{
-pkrt_set(pkg = ":pkg (v. :ver) :ref")
+pkrt_set(pkg = "*:pkg* :ver :ref")
 pkrt("pakret")
 
 # `NULL` resets parameters to their default value
