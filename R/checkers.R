@@ -103,7 +103,6 @@ check_character <- function(x, arg = caller_arg()) {
 }
 
 check_scalar <- function(x, arg = caller_arg()) {
-  check_atomic(x, arg)
   asserter <- function(x) is.null(x) || is_scalar(x)
   check_type(x, asserter, "a single element vector", arg)
 }

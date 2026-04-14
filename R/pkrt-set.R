@@ -32,6 +32,7 @@ pkrt_set <- function(...) {
 }
 
 update_setting <- function(key, value) {
+  check_atomic(value, arg = key)
   check_scalar(value, arg = key)
   if (is.null(value)) {
     return(reset(key))
