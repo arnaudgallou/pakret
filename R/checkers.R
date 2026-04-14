@@ -94,16 +94,11 @@ check_string <- function(x, arg = caller_arg()) {
   check_type(x, is_string, "a string", arg)
 }
 
-check_bool <- function(x, arg = caller_arg()) {
-  check_type(x, is.logical, "`TRUE` or `FALSE`", arg)
-}
-
 check_character <- function(x, arg = caller_arg()) {
   check_type(x, is.character, "a character vector", arg)
 }
 
 check_scalar <- function(x, arg = caller_arg()) {
-  check_atomic(x, arg)
   asserter <- function(x) is.null(x) || is_scalar(x)
   check_type(x, asserter, "a single element vector", arg)
 }

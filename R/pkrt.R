@@ -13,6 +13,6 @@
 #' pkrt("R")
 #' @export
 pkrt <- function(pkg) {
-  check_character(pkg)
+  check_string(pkg)
   cite(as_pkg(pkg))
 }

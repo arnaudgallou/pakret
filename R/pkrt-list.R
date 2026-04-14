@@ -86,7 +86,7 @@ knit_print.pkrt_list <- function(x, ..., inline = FALSE) {
 }
 
 enumerate <- function(x) {
-  n = length(x)
+  n <- length(x)
   if (n == 1L) {
     return(x)
   }
