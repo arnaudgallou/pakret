@@ -61,10 +61,10 @@ Use `NULL` to reset a parameter to its default value.
 ``` r
 pkrt_set(pkg = "*:pkg* :ver :ref")
 pkrt("pakret")
-#> [1] "*pakret* 0.3.0.9000 @pakret"
+#> [1] "*pakret* 0.3.1.9000 @pakret"
 
 # `NULL` resets parameters to their default value
 pkrt_set(pkg = NULL)
 pkrt("pakret")
-#> [1] "the 'pakret' package version 0.3.0.9000 [@pakret]"
+#> [1] "the 'pakret' package version 0.3.1.9000 [@pakret]"
 ```

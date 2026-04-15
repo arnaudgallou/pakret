@@ -27,7 +27,7 @@ A character string with S3 class `AsIs`.
 
 ``` r
 pkrt("pakret")
-#> [1] "the 'pakret' package version 0.3.0.9000 [@pakret]"
+#> [1] "the 'pakret' package version 0.3.1.9000 [@pakret]"
 
 pkrt("R")
 #> [1] "R version 4.5.3 [@base]"
