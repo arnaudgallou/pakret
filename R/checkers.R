@@ -67,8 +67,24 @@ has_placeholder <- function(x) {
   grepl(.regex$placeholder, x, perl = TRUE)
 }
 
-abort <- function(msg, ...) {
-  stop(error(msg, ...), call. = FALSE)
+abort <- function(msg, ..., call = caller_call()) {
+  stop(simpleError(error(msg, ...), call))
+}
+
+caller_call <- function() {
+  ns <- topenv()
+  for (i in seq_len(sys.nframe())) {
+    if (identical(environment(sys.function(i)), ns)) {
+      return(error_call(sys.call(i)))
+    }
+  }
+}
+
+error_call <- function(x) {
+  if (is.function(x[[1L]])) {
+    return()
+  }
+  as.call(list(x[[1L]]))
 }
 
 error <- function(msg, ...) {

@@ -1,5 +1,7 @@
 # pakret (development version)
 
+* Error messages now include the name of the function that raised them (#58).
+
 # pakret 0.3.1
 
 * pakret now supports Quarto's inline syntax (#54).

@@ -6,7 +6,7 @@
       Error:
       ! package or namespace load failed for 'pakret':
        .onLoad failed in loadNamespace() for 'pakret', details:
-        call: NULL
+        call: fun()
         error: No `.bib` files found.
       You must provide a `.bib` file to the `bibliography` YAML key.
 
@@ -18,6 +18,6 @@
       Error:
       ! package or namespace load failed for 'pakret':
        .onLoad failed in loadNamespace() for 'pakret', details:
-        call: NULL
+        call: fun()
         error: `foo.md` must be a `.bib` file.
 
