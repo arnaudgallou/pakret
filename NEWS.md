@@ -1,5 +1,7 @@
 # pakret (development version)
 
+* `pkrt_list()` now errors instead of failing silently when citing a base package (#59).
+
 * Error messages now include the name of the function that raised them (#58).
 
 # pakret 0.3.1

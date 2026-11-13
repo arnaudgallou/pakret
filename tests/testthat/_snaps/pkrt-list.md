@@ -48,3 +48,11 @@
       Error in `pkrt_list()`:
       ! `...` must be a character vector.
 
+---
+
+    Code
+      pkrt_list("base")
+    Condition
+      Error in `pkrt_list()`:
+      ! `...` must include at least one non-base package.
+

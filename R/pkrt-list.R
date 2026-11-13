@@ -22,9 +22,9 @@
 #' as.data.frame(citations)
 #' @export
 pkrt_list <- function(...) {
-  pkgs <- unique(c(...))
+  pkgs <- drop_base(unique(c(...)))
   check_character(pkgs, arg = "...")
-  pkgs <- drop_base(pkgs)
+  check_citable(pkgs, arg = "...")
   itemize_citations(pkgs)
 }
 

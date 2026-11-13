@@ -228,3 +228,10 @@ check_pkg <- function(pkg) {
   }
   abort("Package `%s` doesn't exist or isn't installed.", pkg)
 }
+
+check_citable <- function(x, arg = caller_arg()) {
+  if (!is_empty(x)) {
+    return(invisible())
+  }
+  abort("`%s` must include at least one non-base package.", arg)
+}
