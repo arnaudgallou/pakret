@@ -3,8 +3,7 @@
     Code
       cat(res)
     Output
-      the ‘foo’ package version 1.0.0 (Fastandfurius, Clausus, and Lastopus
-      2020)
+      the ‘foo’ package version 1.0.0 (Fastandfurius et al. 2020)
       
       # References
       
@@ -65,9 +64,9 @@
     Code
       (expect_error(pkrt(1)))
     Output
-      <simpleError: `pkg` must be a string.>
+      <simpleError in pkrt(): `pkg` must be a string.>
     Code
       (expect_error(pkrt("a")))
     Output
-      <simpleError: Package `a` doesn't exist or isn't installed.>
+      <simpleError in pkrt(): Package `a` doesn't exist or isn't installed.>
 

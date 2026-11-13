@@ -3,35 +3,35 @@
     Code
       (expect_error(pkrt_set("a")))
     Output
-      <simpleError: All elements of `...` must be named.>
+      <simpleError in pkrt_set(): All elements of `...` must be named.>
     Code
       (expect_error(pkrt_set(pkg = list("a"))))
     Output
-      <simpleError: `pkg` must be an atomic vector.>
+      <simpleError in pkrt_set(): `pkg` must be an atomic vector.>
     Code
       (expect_error(pkrt_set(pkg = rep("a", 2L))))
     Output
-      <simpleError: `pkg` must be a single element vector.>
+      <simpleError in pkrt_set(): `pkg` must be a single element vector.>
     Code
       (expect_error(pkrt_set(foo = 1)))
     Output
-      <simpleError: `foo` isn't a valid setting.>
+      <simpleError in pkrt_set(): `foo` isn't a valid setting.>
     Code
       (expect_error(pkrt_set(pkg = 1)))
     Output
-      <simpleError: `pkg` must be a string.>
+      <simpleError in pkrt_set(): `pkg` must be a string.>
     Code
       (expect_error(pkrt_set(pkg = ":pkg :ver")))
     Output
-      <simpleError: `pkg` requires the `:ref` placeholder.>
+      <simpleError in pkrt_set(): `pkg` requires the `:ref` placeholder.>
     Code
       (expect_error(pkrt_set(pkg = ":pkg :ver :ref :blah")))
     Output
-      <simpleError: Invalid placeholder `:blah` found in `pkg`.>
+      <simpleError in pkrt_set(): Invalid placeholder `:blah` found in `pkg`.>
     Code
       (expect_error(pkrt_set(pkg = ":pkg :ver :ver :ref")))
     Output
-      <simpleError: Duplicate placeholder `:ver` found in `pkg`.>
+      <simpleError in pkrt_set(): Duplicate placeholder `:ver` found in `pkg`.>
 
 ---
 

@@ -31,8 +31,8 @@
     Code
       cat(res)
     Output
-      ‘foo’ v. 1.0.0 (Fastandfurius, Clausus, and Lastopus 2020), and ‘bar’ v.
-      0.2.0 (Itisalapsus 2024)
+      ‘foo’ v. 1.0.0 (Fastandfurius et al. 2020) and ‘bar’ v. 0.2.0
+      (Itisalapsus 2024)
       
       Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
       *<span class="nocase">foo</span>: Alea Jacta Est*.
@@ -45,6 +45,6 @@
     Code
       pkrt_list(1)
     Condition
-      Error:
+      Error in `pkrt_list()`:
       ! `...` must be a character vector.
 
