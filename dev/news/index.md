@@ -2,7 +2,12 @@
 
 ## pakret (development version)
 
+- Error messages now include the name of the function that raised them
+  ([\#58](https://github.com/arnaudgallou/pakret/issues/58)).
+
 ## pakret 0.3.1
+
+CRAN release: 2026-04-15
 
 - pakret now supports Quarto’s inline syntax
   ([\#54](https://github.com/arnaudgallou/pakret/issues/54)).

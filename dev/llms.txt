@@ -20,6 +20,7 @@ and R packages on the fly in R Markdown and Quarto.
 Install pakret from CRAN with:
 
 ``` r
+
 install.packages("pakret")
 ```
 
@@ -27,6 +28,7 @@ Alternatively, you can install the development version of pakret from
 GitHub with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("arnaudgallou/pakret")
 ```

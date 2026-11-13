@@ -30,5 +30,5 @@ pkrt("pakret")
 #> [1] "the 'pakret' package version 0.3.1.9000 [@pakret]"
 
 pkrt("R")
-#> [1] "R version 4.5.3 [@base]"
+#> [1] "R version 4.6.2 [@base]"
 ```
