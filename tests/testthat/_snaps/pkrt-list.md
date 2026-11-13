@@ -31,7 +31,7 @@
     Code
       cat(res)
     Output
-      ‘foo’ v. 1.0.0 (Fastandfurius et al. 2020) and ‘bar’ v. 0.2.0
+      ‘foo’ v. 1.0.0 (Fastandfurius et al. 2020), and ‘bar’ v. 0.2.0
       (Itisalapsus 2024)
       
       Fastandfurius, Caius, Numerius Clausus, and Marcus Lastopus. 2020.
