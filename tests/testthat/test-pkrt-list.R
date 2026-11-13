@@ -51,4 +51,5 @@ test_that("pkrt_list() correctly enumerates packages in inline chunks", {
 
 test_that("pkrt_list() gives meaningful error messages", {
   expect_snapshot(pkrt_list(1), error = TRUE)
+  expect_snapshot(pkrt_list("base"), error = TRUE)
 })
