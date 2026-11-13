@@ -2,6 +2,10 @@
 
 ## pakret (development version)
 
+- [`pkrt_list()`](https://arnaudgallou.github.io/pakret/dev/reference/pkrt_list.md)
+  now errors instead of failing silently when citing a base package
+  ([\#59](https://github.com/arnaudgallou/pakret/issues/59)).
+
 - Error messages now include the name of the function that raised them
   ([\#58](https://github.com/arnaudgallou/pakret/issues/58)).
 
